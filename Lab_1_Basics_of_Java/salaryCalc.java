@@ -1,9 +1,15 @@
-package Lab_1_Basics_of_Java;
+/* 
+1a. Write a Java program to accept the number of hours worked, hourly rate and calculates the salary 
+for an employee according to the following criteria: The company pays straight time for the first
+ 40 hours worked by each employee and time and a half for all hours worked in excess of 40 hours.
+*/
 
+package Lab_1_Basics_of_Java;
 import java.util.Scanner;
 
 public class salaryCalc {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         double hoursWorked, hourlyRate, salary;
         
@@ -20,8 +26,7 @@ public class salaryCalc {
         }
 
         System.out.println("The salary is " + salary);
-        scanner.close();
+        scanner.close(); 
         
     }
-    
 }
