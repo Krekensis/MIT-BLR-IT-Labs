@@ -1,5 +1,3 @@
-package Lab_1_Basics_of_Java;
-
 public class analyseOutput {
     public static void main(String[] args) {
         

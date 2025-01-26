@@ -3,8 +3,6 @@
 for an employee according to the following criteria: The company pays straight time for the first
  40 hours worked by each employee and time and a half for all hours worked in excess of 40 hours.
 */
-
-package Lab_1_Basics_of_Java;
 import java.util.Scanner;
 
 public class salaryCalc {

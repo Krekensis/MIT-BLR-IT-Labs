@@ -2,7 +2,6 @@
 1b. Write a java program to add two numbers using the bitwise operator and check if the 
 output is an even or odd number. [Hint: use left shift and right shift bitwise operators].
 */
-package Lab_1_Basics_of_Java;
 import java.util.Scanner;
 
 public class evenOrOdd {
