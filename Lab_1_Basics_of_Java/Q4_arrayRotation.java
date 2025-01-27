@@ -5,7 +5,7 @@ The program should handle arrays of different sizes and should be able to rotate
 
 import java.util.Scanner;
 
-public class arrayRotation {
+public class Q4_arrayRotation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

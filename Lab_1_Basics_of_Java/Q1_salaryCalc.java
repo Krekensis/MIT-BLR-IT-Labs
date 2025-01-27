@@ -5,7 +5,7 @@ for an employee according to the following criteria: The company pays straight t
 */
 import java.util.Scanner;
 
-public class salaryCalc {
+public class Q1_salaryCalc {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

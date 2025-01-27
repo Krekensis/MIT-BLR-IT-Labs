@@ -4,7 +4,7 @@ output is an even or odd number. [Hint: use left shift and right shift bitwise o
 */
 import java.util.Scanner;
 
-public class evenOrOdd {
+public class Q2_evenOrOdd {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
