@@ -7,7 +7,7 @@ First 5 km = INR 10/km, Next 15 km = INR 8/km, Next 25 km = INR 5/km.
 
 import java.util.Scanner;
 
-public class taxiService {
+public class Q1_taxiService {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

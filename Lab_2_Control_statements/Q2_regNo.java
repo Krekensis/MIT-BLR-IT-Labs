@@ -6,7 +6,7 @@ Assuming the first two digits specify the year of joining.
 package Lab_2_Control_statements;
 import java.util.Scanner;
 
-public class regNo {
+public class Q2_regNo {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

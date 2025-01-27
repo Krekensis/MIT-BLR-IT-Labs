@@ -1,4 +1,6 @@
-public class analyseOutput {
+
+
+public class Q3_analyseOutput {
     public static void main(String[] args) {
         
         /*
