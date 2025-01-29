@@ -8,7 +8,7 @@ def addElements(type):
     if (type == 'int'):
         a, b = int(a), int(b)
 
-    elif (type == 'float'):\
+    elif (type == 'float'):
         a, b = float(a), float(b)
 
     elif (type == 'str' or type == 'string'): 
