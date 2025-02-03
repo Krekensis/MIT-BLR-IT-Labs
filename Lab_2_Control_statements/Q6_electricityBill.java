@@ -1,5 +1,5 @@
 /*
-Write a Java program to compute the electricity bill for an industry using a switch-case statement. The program should take the daily consumption in units for 7 days as input. Based on the total consumption, the program should calculate and display the total electricity bill according to the following pricing table:
+2f. Write a Java program to compute the electricity bill for an industry using a switch-case statement. The program should take the daily consumption in units for 7 days as input. Based on the total consumption, the program should calculate and display the total electricity bill according to the following pricing table:
 Units Price per Unit (INR)
 0 - 100 7.00
 101 - 200 8.00

@@ -1,5 +1,6 @@
 /*
-For a given date of birth of a person, calculate the date of retirement by taking years of service as input. (assume service periods as 60 years).
+2c. For a given date of birth of a person, calculate the date of retirement by taking years of service as input. 
+(assume service periods as 60 years).
 */
 package Lab_2_Control_statements;
 import java.util.Scanner;
@@ -23,16 +24,15 @@ public class Q3_retirementDate {
             case 2:
                 if ((rYear % 4 == 0 && rYear % 100 != 0) || (rYear % 400 == 0)) {
                     rDate = 29;
-                } else {
-                    rDate = 28;
-                }
+                } else { rDate = 28; }
                 break;
             default:
                 rDate = 31;
                 break;
         }
 
-        System.out.println("Birth date: "+date+"/"+month+"/"+year + ", Retirement date is: " + rDate + "/" + rMonth + "/" + rYear);
+        System.out.println("Birth date: "+ date + "/" + month + "/" + year);
+        System.out.println("Retirement date is: " + rDate + "/" + rMonth + "/" + rYear);
 
         scanner.close();
     }

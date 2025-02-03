@@ -1,6 +1,6 @@
 /*
- Write a Java programs to print factorial of a given no recursively
- */
+2e. Write a Java programs to print factorial of a given no recursively
+*/
 
 package Lab_2_Control_statements;
 import java.util.Scanner;

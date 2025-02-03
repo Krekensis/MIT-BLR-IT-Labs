@@ -1,5 +1,5 @@
 /*
-For given a 9-digit registration number of a CSE student, identify the year of joining. 
+2b. For a given 9-digit registration number of a CSE student, identify the year of joining. 
 Assuming the first two digits specify the year of joining.
 */
 

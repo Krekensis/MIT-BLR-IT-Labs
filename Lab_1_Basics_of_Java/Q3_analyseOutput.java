@@ -1,4 +1,10 @@
-
+/*
+1c. Write a Java program to execute the following statements. Observe and analyze the outputs.
+a. int x =10;            b. double x = 10.5;      c. double x=10.5;
+   double y = x;            int y = x;               int y = (int) x
+   System.out.println(y);   System.out.println(y);   System.out.println(y);
+ */
+package Lab_1_Basics_of_java;
 
 public class Q3_analyseOutput {
     public static void main(String[] args) {

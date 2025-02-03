@@ -1,5 +1,5 @@
 /*
-Write a Java program to display non principle diagonal elements and find their sum.
+2d. Write a Java program to display non principle diagonal elements and find their sum.
 [Hint: Non Principal diagonal: The diagonal of a diagonal matrix from the top right to the bottom left corner is called non principal diagonal.]
 */
 
