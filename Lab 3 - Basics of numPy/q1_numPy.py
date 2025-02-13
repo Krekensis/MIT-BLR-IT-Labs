@@ -38,7 +38,6 @@ print(d)
 
 #8
 x = np.random.randint((10, 10))
-print("original array: ")
 print(x)
 xmin, xmax = x.min(), x.max()
 print("Minimum and Maximum Values: ")

@@ -3,7 +3,7 @@
 # Print the dictionary with words as keys and their frequencies as values.
 
 sentence = input('Enter a sentence: ')
-words = sentence.split()
+words = sentence.lower().split()
 wordDict = {}
 
 for word in words:
