@@ -57,8 +57,8 @@ public class Q1_studentClass {
         }
 
         student.assign(name, marks);
-        student.display();
         student.compute();
+        student.display();
         scanner.close();
     }
 }
