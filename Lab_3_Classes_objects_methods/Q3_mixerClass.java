@@ -33,8 +33,9 @@ class Mixer {
 
 	void display() {
 		System.out.println("Elements of mixed array: ");
-		for (int i = 0; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++){
 			System.out.print(arr[i] + " ");
+		}
 	}
 }
 
