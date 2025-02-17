@@ -22,12 +22,12 @@ class Mixer {
 	}
 
 	Mixer mix(Mixer A, int a[]) {
-		int t[] = new int[a.length + A.arr.length];
-		System.arraycopy(a, 0, t, 0, a.length);
-		System.arraycopy(A.arr, 0, t, a.length, A.arr.length);
-		Arrays.sort(t);
+		int arr0[] = new int[a.length + A.arr.length];
+		System.arraycopy(a, 0, arr0, 0, a.length);
+		System.arraycopy(A.arr, 0, arr0, a.length, A.arr.length);
+		Arrays.sort(arr0);
 		A.arr = new int[arr.length];
-		A.arr = t;
+		A.arr = arr0;
 		return A;
 	}
 
