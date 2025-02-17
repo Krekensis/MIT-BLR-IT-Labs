@@ -1,5 +1,5 @@
 /*
-3b. Define a class EMPLOYEE having following members: Ename, Eid, Basic, DA, Gross_Sal, Net_Sal and following methods:
+3b. Define a class EMPLOYEE having following members: Ename, Eid, Basic, DA, Gross_Sal, IT and following methods:
 a. read(): to read N employee details
 b. display(): to display employee details
 c. compute(): to compute net salary
@@ -11,7 +11,7 @@ import java.util.Scanner;
 class EMPLOYEE {
     String Ename;
     int Eid;
-    double Basic, DA, Gross_Sal, Net_Sal;
+    double Basic, DA, Gross_Sal, IT, Net_sal;
 
     void read(Scanner scanner) {
         System.out.print("Enter Employee Name: ");
@@ -26,21 +26,23 @@ class EMPLOYEE {
         scanner.nextLine(); 
     }
 
-    void compute() {
+    void compute_net_sal() {
         DA = 0.52 * Basic;
         Gross_Sal = Basic + DA;
-        Net_Sal = Gross_Sal - (0.3 * Gross_Sal);
+        IT = 0.3 * Gross_Sal;
+        Net_sal = Gross_Sal - IT;
     }
 
     void display() {
-        System.out.println("Employee Details:");
-        System.out.println("Name: " + Ename);
-        System.out.println("ID: " + Eid);
-        System.out.println("Basic Salary: " + Basic);
-        System.out.println("Dearness Allowance: " + DA);
-        System.out.println("Gross Salary: " + Gross_Sal);
-        System.out.println("Net Salary: " + Net_Sal);
-        System.out.println("------------------------------");
+        System.out.println("Employee Details:\n" +
+                    "Name: " + Ename + "\n" +
+                    "ID: " + Eid + "\n" +
+                    "Basic Salary: " + Basic + "\n" +
+                    "Dearness Allowance: " + DA + "\n" +
+                    "Gross Salary: " + Gross_Sal + "\n" +
+                    "Income tax: " + IT + "\n" +
+                    "Net Salary: " + Net_sal + "\n" +
+                    "------------------------------");
     }
 }
 
@@ -57,10 +59,9 @@ public class Q2_employeeClass {
             System.out.println("\nEntering details for Employee " + (i + 1) + ":");
             employees[i] = new EMPLOYEE();
             employees[i].read(scanner);
-            employees[i].compute();
+            employees[i].compute_net_sal();
         }
 
-        System.out.println("\nEmployee Details:");
         for (int i = 0; i < N; i++) {
             employees[i].display();
         }
