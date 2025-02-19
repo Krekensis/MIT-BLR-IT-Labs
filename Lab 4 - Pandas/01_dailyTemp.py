@@ -11,9 +11,9 @@ import pandas as pd
 temps = pd.Series([20, 22, 25, 27, 30, 28, 26], index=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
 print('Temperatures:\n',temps)
 
-print('Average temperature:', temps.mean())
-print('Maximum temperature:', temps.max(), 'on', temps.idxmax())
-print('Minimum temperature:', temps.min(), 'on', temps.idxmin())
+print(f"Average temperature: {temps.mean():.2f}")
+print(f"Maximum temperature: {temps.max()} on {temps.idxmax()}")
+print(f"Minimum temperature: {temps.min()} on {temps.idxmin()}")
 
 print('Temperatures greater than 25:\n', temps[temps > 25])
 print('Temperatures in Fahrenheit:\n', temps * 9/5 + 32)
