@@ -8,10 +8,11 @@ Units Price per Unit (INR)
 
 package Lab_2_Control_statements;
 import java.util.Scanner;
+
 public class Q6_electricityBill {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         int[] units = new int[7];
         System.out.println("Enter the daily consumption in units for 7 days:");
         for (int i = 0; i < 7; i++) {

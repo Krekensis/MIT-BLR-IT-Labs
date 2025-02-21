@@ -1,9 +1,9 @@
 /*
 3a. Define a Class STUDENT having following
 Members: sname, marks_array, total, avg and provide the following methods:
-a. assign(): to assign initial values to the STUDENT object
-b. display(): to display the STUDENT object
-c. compute(): to Compute Total, Average marks
+    a. assign(): to assign initial values to the STUDENT object
+    b. display(): to display the STUDENT object
+    c. compute(): to Compute Total, Average marks
 Write a Java program Illustrating Class Declarations, Definition, and Accessing Class Members to test the class defined.
 */
 
@@ -29,7 +29,7 @@ class STUDENT {
         }
         avg = total / (double) marks_array.length;
     }
-    
+
     void display() {
         System.out.println("Student Name: " + sname);
         System.out.print("Marks: ");

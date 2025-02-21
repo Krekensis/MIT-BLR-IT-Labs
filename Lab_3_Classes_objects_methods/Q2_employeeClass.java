@@ -1,11 +1,12 @@
 /*
 3b. Define a class EMPLOYEE having following members: Ename, Eid, Basic, DA, Gross_Sal, IT and following methods:
-a. read(): to read N employee details
-b. display(): to display employee details
-c. compute(): to compute net salary
+    a. read(): to read N employee details
+    b. display(): to display employee details
+    c. compute(): to compute net salary
 Write a Java program to read data of N employee and compute and display net salary of each employee Note: (DA = 52% of Basic, gross_Sal = Basic + DA; IT = 30% of the gross salary)
 */
 package Lab_3_Classes_objects_methods;
+
 import java.util.Scanner;
 
 class EMPLOYEE {
@@ -16,14 +17,14 @@ class EMPLOYEE {
     void read(Scanner scanner) {
         System.out.print("Enter Employee Name: ");
         Ename = scanner.nextLine();
-        
+
         System.out.print("Enter Employee ID: ");
         Eid = scanner.nextInt();
-        scanner.nextLine(); 
-        
+        scanner.nextLine();
+
         System.out.print("Enter Basic Salary: ");
         Basic = scanner.nextDouble();
-        scanner.nextLine(); 
+        scanner.nextLine();
     }
 
     void compute_net_sal() {
@@ -34,15 +35,15 @@ class EMPLOYEE {
     }
 
     void display() {
-        System.out.println("Employee Details:\n" +
-                    "Name: " + Ename + "\n" +
-                    "ID: " + Eid + "\n" +
-                    "Basic Salary: " + Basic + "\n" +
-                    "Dearness Allowance: " + DA + "\n" +
-                    "Gross Salary: " + Gross_Sal + "\n" +
-                    "Income tax: " + IT + "\n" +
-                    "Net Salary: " + Net_sal + "\n" +
-                    "------------------------------");
+        System.out.println("Employee Details:" +
+                "\nName: " + Ename + 
+                "\nID: " + Eid + 
+                "\nBasic Salary: " + Basic + 
+                "\nDearness Allowance: " + DA + 
+                "\nGross Salary: " + Gross_Sal + 
+                "\nIncome tax: " + IT + 
+                "\nNet Salary: " + Net_sal +
+                "\n------------------------------");
     }
 }
 
@@ -51,7 +52,7 @@ public class Q2_employeeClass {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of employees: ");
         int N = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         EMPLOYEE[] employees = new EMPLOYEE[N];
 
@@ -69,4 +70,3 @@ public class Q2_employeeClass {
         scanner.close();
     }
 }
-
