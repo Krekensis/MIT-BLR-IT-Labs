@@ -31,7 +31,7 @@ public class Q1_studentCtor {
     public static void main(String[] args) {
 
         STUDENT student1 = new STUDENT();
-        STUDENT student2 = new STUDENT("John Doe", 18, 7);
+        STUDENT student2 = new STUDENT("Max Payne", 18, 7);
 
         System.out.println("Student 1:");
         student1.display();

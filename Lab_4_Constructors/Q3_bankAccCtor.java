@@ -64,7 +64,7 @@ public class Q3_bankAccCtor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         bankAccount account1 = new bankAccount();
-        bankAccount account2 = new bankAccount("Ben Dover", 123456, "Savings", 69420);
+        bankAccount account2 = new bankAccount("", 123456, "Savings", 69420);
 
         bankAccount.displayROI();
 

@@ -31,7 +31,7 @@ public class Q2_employeeCtor {
     public static void main(String[] args) {
 
         EMPLOYEE employee1 = new EMPLOYEE();
-        EMPLOYEE employee2 = new EMPLOYEE("John Doe", 18, 10000);
+        EMPLOYEE employee2 = new EMPLOYEE("Niko Bellic", 30, 100000);
 
         System.out.println("Employee 1:");
         employee1.display();
