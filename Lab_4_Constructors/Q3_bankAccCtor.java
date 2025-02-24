@@ -56,7 +56,7 @@ class bankAccount {
     }
 
     public static void displayROI(){
-        System.out.println("Rate of Interest: " + ROI);
+        System.out.println("Rate of interest: " + ROI);
     }
 }
 
@@ -64,7 +64,7 @@ public class Q3_bankAccCtor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         bankAccount account1 = new bankAccount();
-        bankAccount account2 = new bankAccount("", 123456, "Savings", 69420);
+        bankAccount account2 = new bankAccount("Walter White", 123456, "Savings", 69420);
 
         bankAccount.displayROI();
 
