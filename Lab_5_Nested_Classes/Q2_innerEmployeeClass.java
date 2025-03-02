@@ -56,7 +56,7 @@ class EMPLOYEE {
 
 public class Q2_innerEmployeeClass {
     public static void main(String[] args) {
-        EMPLOYEE emp = new EMPLOYEE("Geralt of Rivia", 50000);
+        EMPLOYEE emp = new EMPLOYEE("Monke", 50000);
         emp.addDept("Marketing", "Delhi");
         emp.addDept("Finance", "Mumbai");
         emp.display();
