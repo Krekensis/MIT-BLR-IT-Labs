@@ -10,29 +10,33 @@ import pandas as pd
 import matplotlib.pyplot as mplot
 import seaborn as sea
 
-data = pd.read_csv('./Datasets/cereals.csv')
+data = pd.read_csv('./Datasets/cereal.csv')
 print('\nInitial data:\n', data)
 
 mplot.figure(figsize=(8, 6))
-sea.boxplot(data=data, orient='h', palette='viridis')
+sea.boxplot(data=data, orient='h', palette='plasma')
 mplot.title('Boxplot for cereals dataset')
+mplot.xlabel('Values')
 mplot.show()
 
 mplot.figure(figsize=(8, 6))
 sea.histplot(data=data, kde=True, palette='viridis')
 mplot.title('Histogram for cereals dataset')
+mplot.xlabel('Values')
+mplot.ylabel('Frequency')
 mplot.show()
 
 hiRating = data.loc[data['Rating'].idxmax()]
 loRating = data.loc[data['Rating'].idxmin()]
 
 mplot.figure(figsize=(8, 6))
-sea.barplot(x=['Highest', 'Lowest'], y=[hiRating['Rating'], loRating['Rating']], palette='viridis')
+sea.barplot(x=['Highest', 'Lowest'], y=[hiRating['Rating'], loRating['Rating']], palette='winter')
 mplot.title('Cereals with highest and lowest ratings')
 mplot.xlabel('Cereal')
 mplot.ylabel('Rating')
 
 for i, v in enumerate([hiRating['Rating'], loRating['Rating']]):
-    mplot.text(i, v, f'{v:.2f}', ha='center', va='bottom')
+    cereal_name = hiRating['Name'] if i == 0 else loRating['Name']
+    mplot.text(i, v, f'{cereal_name} = {v:.2f}', ha='center', va='bottom')
 
 mplot.show()

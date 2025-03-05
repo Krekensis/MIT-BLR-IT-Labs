@@ -30,6 +30,7 @@ mplot.figure(figsize=(8, 6))
 sea.boxplot(data.hp, color='#3d6aff')
 mplot.title('Boxplot for Horsepower (hp)')
 mplot.xlabel('Horsepower (hp)')
+mplot.ylabel('Values')
 mplot.show()
 
 mplot.figure(figsize=(10, 6))
