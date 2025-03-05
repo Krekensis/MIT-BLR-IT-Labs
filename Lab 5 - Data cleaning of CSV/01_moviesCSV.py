@@ -15,9 +15,9 @@ data = {
 df = pd.DataFrame(data)
 print(df)
 
-df.to_csv('Movies.csv', index=False)
+df.to_csv('./Datasets/movies.csv', index=False)
 
-movies = pd.read_csv('Movies.csv')
+movies = pd.read_csv('./Datasets/movies.csv')
 print('\nMovies:\n', movies)
 
 # highest_rating = movies['Rating'].idxmax()
@@ -27,7 +27,7 @@ highest_rating = df.loc[movies['Rating'].idxmax()]
 print('\nMovie with highest rating:\n', highest_rating)
 
 hindi_movies = movies[movies['Language'] == 'Hindi']
-hindi_movies.to_csv('HindiMovies.csv', index=False)
+hindi_movies.to_csv('./Datasets/hindimov.csv', index=False)
 print('\nHindi Movies:\n', hindi_movies)
 
 
