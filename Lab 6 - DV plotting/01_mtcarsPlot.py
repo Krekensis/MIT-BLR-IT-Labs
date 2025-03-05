@@ -18,28 +18,34 @@ for index, row in data.iterrows():
     if row['cyl'] == 4:
         print(row['mpg'])
 '''
-
+#a
 mplot.figure(figsize=(8, 6))
 sea.histplot(data.mpg, kde=True, color='#3d6aff')
 mplot.title('Distribution of mpg')
 mplot.xlabel('Miles Per Gallon')
 mplot.ylabel('Frequency')
+mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_a_histogram.png")
 mplot.show()
 
+#b
 mplot.figure(figsize=(8, 6))
 sea.boxplot(data.hp, color='#3d6aff')
 mplot.title('Boxplot for Horsepower (hp)')
 mplot.xlabel('Horsepower (hp)')
 mplot.ylabel('Values')
+mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_b_boxplot.png")
 mplot.show()
 
+#c
 mplot.figure(figsize=(10, 6))
 sea.scatterplot(data, x=data.hp, y=data.mpg, hue='model')
 mplot.title('Scatter plot between Horsepower (hp) and mpg')
 mplot.xlabel('Horsepower (hp)')
 mplot.ylabel('Miles Per Gallon (mpg)')
+mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_c_scatterplot.png")
 mplot.show()
 
+#d
 avg_mpg = data.groupby('cyl')['mpg'].mean()
 mplot.figure(figsize=(8, 6))
 sea.barplot(x=avg_mpg.index, y=avg_mpg.values, palette='viridis')
@@ -50,4 +56,5 @@ mplot.ylabel('Average mpg')
 for i, v in enumerate(avg_mpg.values):
     mplot.text(i, v, f'{v:.2f}', ha='center', va='bottom')
 
+mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_d_barplot.png")
 mplot.show()
