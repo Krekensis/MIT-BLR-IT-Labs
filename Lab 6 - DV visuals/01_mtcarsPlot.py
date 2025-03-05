@@ -32,7 +32,7 @@ mplot.title('Boxplot for Horsepower (hp)')
 mplot.xlabel('Horsepower (hp)')
 mplot.show()
 
-mplot.figure(figsize=(15, 10))
+mplot.figure(figsize=(10, 6))
 sea.scatterplot(data, x=data.hp, y=data.mpg, hue='model')
 mplot.title('Scatter plot between Horsepower (hp) and mpg')
 mplot.xlabel('Horsepower (hp)')
