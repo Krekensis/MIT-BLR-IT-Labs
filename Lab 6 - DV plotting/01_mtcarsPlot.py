@@ -37,11 +37,12 @@ mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_b_boxplot.png")
 mplot.show()
 
 #c
-mplot.figure(figsize=(10, 6))
-sea.scatterplot(data, x=data.hp, y=data.mpg, hue='model')
-mplot.title('Scatter plot between Horsepower (hp) and mpg')
-mplot.xlabel('Horsepower (hp)')
-mplot.ylabel('Miles Per Gallon (mpg)')
+mplot.figure(figsize=(15, 10))
+sea.scatterplot(data, x=data.hp, y=data.mpg, hue='model', s=50)
+mplot.title('Scatter plot between Horsepower (hp) and mpg', fontsize=20)
+mplot.xlabel('Horsepower (hp)', fontsize=15)
+mplot.ylabel('Miles Per Gallon (mpg)', fontsize=15)
+mplot.tick_params(axis='both', which='major', labelsize=15)
 mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_c_scatterplot.png")
 mplot.show()
 
