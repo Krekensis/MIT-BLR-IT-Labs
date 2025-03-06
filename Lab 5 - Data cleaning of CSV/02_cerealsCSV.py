@@ -19,7 +19,8 @@ e.  Create a table with the 5 number summary of all the numeric
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv("./Datasets/cereals.csv")
+data = pd.read_csv("./Datasets/cereal.csv")
+data = data.drop(columns=["Cold", "Nabisco", "Quaker", "Kelloggs", "GeneralMills", "Ralston", "AHFP"], index=range(10,77))
 
 print('\nInitial data:\n', data)
 

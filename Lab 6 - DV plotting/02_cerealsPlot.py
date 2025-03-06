@@ -11,6 +11,7 @@ import matplotlib.pyplot as mplot
 import seaborn as sea
 
 data = pd.read_csv('./Datasets/cereal.csv')
+data = data.drop(columns=["Cold","Nabisco","Quaker","Kelloggs","GeneralMills","Ralston","AHFP"])
 print('\nInitial data:\n', data)
 
 #a1
@@ -23,7 +24,7 @@ mplot.show()
 
 #a2
 mplot.figure(figsize=(8, 6))
-sea.histplot(data=data, kde=True, palette='viridis')
+sea.histplot(data=data, palette='viridis')
 mplot.title('Histogram for cereals dataset')
 mplot.xlabel('Values')
 mplot.ylabel('Frequency')
