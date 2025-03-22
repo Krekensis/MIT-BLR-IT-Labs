@@ -1,5 +1,5 @@
 /*
-To the already defined Employee class, add the following string processing methods:
+6b. To the already defined Employee class, add the following string processing methods:
     i. capitalize(): A method that formats the employee's name by capitalizing the first letter of each word and converting the remaining letters to lowercase.
         For example, if the employee's name is "JOHN DOE", this method would transform it to "John Doe".
     ii. generateEmail(): A method that generates an email address for the employee based on their name. For example, 

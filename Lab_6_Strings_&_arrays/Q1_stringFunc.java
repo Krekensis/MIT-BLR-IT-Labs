@@ -1,5 +1,5 @@
 /*
-1. Write a menu driven program to do the following
+6a. Write a menu driven program to do the following
 i. To check whether a string is palindrome or not
 ii. Write the string in an alphabetical order
 iii. Reverse the string
