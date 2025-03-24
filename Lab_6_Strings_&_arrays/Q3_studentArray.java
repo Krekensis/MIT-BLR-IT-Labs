@@ -39,7 +39,7 @@ class Student {
         return name.toLowerCase().contains(substring.toLowerCase());
     }
 
-    public static void sortStudentsByName(Student[] students) {
+    public static void sort(Student students[]) {
         Arrays.sort(students, (a, b) -> a.name.compareTo(b.name));
     }
     
@@ -56,13 +56,14 @@ public class Q3_studentArray {
         int n = sc.nextInt();
         sc.nextLine();
 
-        Student[] students = new Student[n];
+        Student students[] = new Student[n];
 
         for (int i = 0; i < n; i++) {
             System.out.print("Name of student " + (i + 1) + ": ");
             String name = sc.nextLine();
             System.out.print("Age of student " + (i + 1) + ": ");
             int age = sc.nextInt();
+            sc.nextLine();
             System.out.print("CGPA of student " + (i + 1) + ": ");
             float cgpa = sc.nextFloat();
             sc.nextLine();
@@ -94,7 +95,7 @@ public class Q3_studentArray {
             }
         }
 
-        Student.sortStudentsByName(students);
+        Student.sort(students);
         System.out.println("\nStudents sorted alphabetically by name:");
         for (Student student : students) {
             student.display();
@@ -102,4 +103,4 @@ public class Q3_studentArray {
 
         sc.close();
     }
-                }
+}
