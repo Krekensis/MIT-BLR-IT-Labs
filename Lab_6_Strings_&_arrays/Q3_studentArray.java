@@ -9,7 +9,7 @@
 In a separate class that contains main(), read the students details from console input. After displaying the details of all the students, illustrate the use of the above methods.
  */
 
-import java.util.Scanner;
+import java.util.*;
 
 class Student {
     String name;
@@ -34,10 +34,19 @@ class Student {
     public String removeWhitespace() {
         return name.replace(" ", "");
     }
+    
+    public boolean containsSubstring(String substring) {
+        return name.toLowerCase().contains(substring.toLowerCase());
+    }
 
+    public static void sortStudentsByName(Student[] students) {
+        Arrays.sort(students, (a, b) -> a.name.compareTo(b.name));
+    }
+    
     public void display() {
         System.out.println("\nName: " + name + "\nAge: " + age + "\nCGPA: " + cgpa);
     }
+    
 }
 
 public class Q3_studentArray {
@@ -61,7 +70,6 @@ public class Q3_studentArray {
             students[i] = new Student(name, age, cgpa);
         }
 
-
         System.out.println("Details of the students:");
         for (Student student : students) {
             student.display();
@@ -76,6 +84,22 @@ public class Q3_studentArray {
         for (Student student : students) {
             System.out.println(student.removeWhitespace());
         }
+        
+        System.out.print("\nEnter a substring to search in student names: ");
+        String substring = sc.nextLine();
+        System.out.println("\nStudents whose names contain the substring \"" + substring + "\":");
+        for (Student student : students) {
+            if (student.containsSubstring(substring)) {
+                System.out.println(student.name);
+            }
+        }
+
+        Student.sortStudentsByName(students);
+        System.out.println("\nStudents sorted alphabetically by name:");
+        for (Student student : students) {
+            student.display();
+        }
+
         sc.close();
     }
-}
+                }
