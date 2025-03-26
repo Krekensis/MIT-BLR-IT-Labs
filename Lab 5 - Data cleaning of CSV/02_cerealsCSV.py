@@ -30,6 +30,7 @@ for column in data.columns:
         data[column] = data[column].replace(-1, float(f"{mean_value:.2f}"))
 
 print('\nData after replacing -1 with mean:\n', data)
+print("\n5 number summary:\n", data.describe().loc[['min', '25%', '50%', '75%', 'max']])
 
 for column in data.columns:
     if data[column].dtype in [np.int64, np.float64]:
@@ -38,5 +39,6 @@ for column in data.columns:
         data[column] = data[column].replace(data[column].min(), float(f"{median_value:.2f}"))
 
 print('\nData after replacing noisy values with median:\n', data)
+print("\n5 number summary:\n", data.describe().loc[['min', '25%', '50%', '75%', 'max']])
 
 
