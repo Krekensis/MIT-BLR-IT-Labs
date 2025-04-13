@@ -6,6 +6,7 @@ iii. Reverse the string
 iv. Concatenate the original string and the reversed string
  */
 
+package Lab_6_Strings_and_arrays;
 import java.util.Scanner;
 
 public class Q1_stringFunc {
@@ -32,13 +33,13 @@ public class Q1_stringFunc {
                 }
                 break;
             case 2:
-                System.out.println("The string in alphabetical order is: " + sortString(str));
+                System.out.println("The string in alphabetical order is: " + sort(str));
                 break;
             case 3:
-                System.out.println("The reversed string is: " + reverseString(str));
+                System.out.println("The reversed string is: " + reverse(str));
                 break;
             case 4:
-                System.out.println("The concatenated string is: " + concatenateString(str));
+                System.out.println("The concatenated string is: " + concat(str));
                 break;
             default:
                 System.out.println("Invalid choice");
@@ -56,7 +57,7 @@ public class Q1_stringFunc {
         return true;
     }
 
-    public static String sortString(String str) {
+    public static String sort(String str) {
         char[] arr = str.toCharArray();
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
@@ -70,7 +71,7 @@ public class Q1_stringFunc {
         return new String(arr);
     }
 
-    public static String reverseString(String str) {
+    public static String reverse(String str) {
         char[] arr = str.toCharArray();
         for (int i = 0; i < arr.length / 2; i++) {
             char temp = arr[i];
@@ -80,8 +81,8 @@ public class Q1_stringFunc {
         return new String(arr);
     }
 
-    public static String concatenateString(String str) {
-        return str + reverseString(str);
+    public static String concat(String str) {
+        return str + reverse(str);
     }
 }
 

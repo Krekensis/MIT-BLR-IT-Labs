@@ -13,7 +13,7 @@ package Lab_5_Nested_Classes;
 class STUDENT {
     String name;
     int age;
-    Subject[] subjects;
+    Subject subjects[];
     int totalMarks;
     double avgMarks;
 

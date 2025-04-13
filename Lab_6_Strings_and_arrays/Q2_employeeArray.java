@@ -9,6 +9,7 @@ Illustrate the above methods upon creating an array of Employee objects.
 The details of each Employee object must be read from the user and initialized using the parameterised constructor.
 */
 
+package Lab_6_Strings_and_arrays;
 import java.util.Scanner;
 
 class Employee {
@@ -23,7 +24,7 @@ class Employee {
     }
 
     public String capitalize() {
-        String[] words = name.split(" ");
+        String words[] = name.split(" ");
         String capName = "";
         for (String w : words) {
             capName += w.substring(0, 1).toUpperCase() + w.substring(1).toLowerCase() + " ";
@@ -32,7 +33,7 @@ class Employee {
     }
 
     public String generateEmail() {
-        String[] w = name.split(" ");
+        String w[] = name.split(" ");
         return (w[0].charAt(0) + (w.length > 1 ? w[1] : "")).toLowerCase() + "@gmail.com";
     }
 
@@ -48,7 +49,7 @@ public class Q2_employeeArray {
         int n = sc.nextInt();
         sc.nextLine();
 
-        Employee[] employees = new Employee[n];
+        Employee employees[] = new Employee[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Name of employee " + (i + 1) + ": ");
             String name = sc.nextLine();

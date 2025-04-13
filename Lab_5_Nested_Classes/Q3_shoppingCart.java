@@ -6,7 +6,7 @@
 package Lab_5_Nested_Classes;
 
 class ShoppingCart {
-    Item[] items;
+    Item items[];
     double totalPrice;
 
     public ShoppingCart() {

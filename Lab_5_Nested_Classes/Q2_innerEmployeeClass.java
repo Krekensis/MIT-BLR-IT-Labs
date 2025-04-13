@@ -13,7 +13,7 @@ package Lab_5_Nested_Classes;
 class EMPLOYEE {
     String eName;
     double salary;
-    Department[] departments;
+    Department departments[];
 
     public EMPLOYEE(String eName, double salary) {
         this.eName = eName;

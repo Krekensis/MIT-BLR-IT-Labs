@@ -43,7 +43,6 @@ class ScienceStudent extends STUDENT {
         this.practicalMarks = practicalMarks;
     }
 
-    @Override
     public void compute() {
         totalMarks = m1 + m2 + m3 + practicalMarks;
         avgMarks = totalMarks / 4;
@@ -66,16 +65,16 @@ class ArtsStudent extends STUDENT {
 public class Q1_studentSubClass {
     public static void main(String[] args) {
         STUDENT student = new STUDENT("Spider Man", 1, 90, 80, 70);
-        ScienceStudent scienceStudent = new ScienceStudent("Iron Man", 2, 80, 70, 60, 50);
-        ArtsStudent artsStudent = new ArtsStudent("Bat Man", 3, 70, 60, 50, "History");
+        ScienceStudent sciStu = new ScienceStudent("Iron Man", 2, 69, 42, 70, 50);
+        ArtsStudent artStu = new ArtsStudent("Bat Man", 3, 70, 60, 50, "Business Studies");
 
         student.compute();
-        scienceStudent.compute();
-        artsStudent.compute();
+        sciStu.compute();
+        artStu.compute();
 
         student.display();
-        scienceStudent.display();
-        scienceStudent.displaypracticalMarks();
-        artsStudent.display();
+        sciStu.display();
+        sciStu.displaypracticalMarks();
+        artStu.display();
     }
 }

@@ -9,6 +9,7 @@
 In a separate class that contains main(), read the students details from console input. After displaying the details of all the students, illustrate the use of the above methods.
  */
 
+package Lab_6_Strings_and_arrays;
 import java.util.Scanner;
 
 class Student {
@@ -47,7 +48,7 @@ public class Q3_studentArray {
         int n = sc.nextInt();
         sc.nextLine();
 
-        Student[] students = new Student[n];
+        Student students[] = new Student[n];
 
         for (int i = 0; i < n; i++) {
             System.out.print("Name of student " + (i + 1) + ": ");
