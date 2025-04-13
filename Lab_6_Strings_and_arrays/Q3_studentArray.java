@@ -8,7 +8,7 @@
     iv. Sort the students alphabetically
 In a separate class that contains main(), read the students details from console input. After displaying the details of all the students, illustrate the use of the above methods.
  */
-
+package Lab_6_Strings_and_arrays;
 import java.util.Scanner;
 
 class Student {
