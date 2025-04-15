@@ -5,7 +5,7 @@ student details and display them. Create a new package edu.manipal.kmc. Demonstr
 you try to use the Student class from a different package and note the compilation errors.
 */
 
-package Lab_09_Packages_and_Access.Q1_eduPackage.edu_manipal_kmc;
+package Lab_09_Packages_and_Access.Q1_edu.manipal.kmc;
 import Lab_09_Packages_and_Access.Q1_eduPackage.edu_manipal_mit.*;
 
 @SuppressWarnings("unused")
