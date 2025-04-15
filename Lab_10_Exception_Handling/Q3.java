@@ -1,3 +1,9 @@
+/*
+Write a program to calculate the average marks of a student. If the total marks are zero or the number of subjects is zero, 
+throw an ArithmeticException to avoid division by zero. Create a Student class , add a method calculateAverage(int totalMarks, 
+int numberOfSubjects) that throws ArithmeticException if numberOfSubjects is zero. Write a MarksValidationDemo class to invoke 
+the calculateAverage method with valid and invalid data. Handle the exception and display an appropriate error message.
+*/
 package Lab_10_Exception_Handling;
 
 class Student1 {

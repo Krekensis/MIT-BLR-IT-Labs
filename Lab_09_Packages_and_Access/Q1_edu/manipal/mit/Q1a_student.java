@@ -1,11 +1,11 @@
 /*
-9a. Create a package edu.manipal.mit. Create a Student class to store their name and roll number, define a method to display these details. 
-Both variables and method should use the default access modifier. Creates another class DefaultAccessDemo in the same package to set the 
+9a.1. Create a package edu.manipal.mit. Create a Student class to store their name and roll number, define a method to display these details. 
+Both variables and method should use the default access modifier. Create another class DefaultAccessDemo in the same package to set the 
 student details and display them. Create a new package edu.manipal.kmc. Demonstrate that the default access modifier restricts access when 
 you try to use the Student class from a different package and note the compilation errors.
 */
 
-package Lab_09_Packages_and_Access.Q1_eduPackage.edu_manipal_mit;
+package Lab_09_Packages_and_Access.Q1_edu.manipal.mit;
 
 class Student {
     String name;
@@ -21,9 +21,11 @@ class Student {
     }
 
     void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Roll No: " + roll);
+        System.out.println(
+            "Name: " + name + 
+            "\nAge: " + age + 
+            "\nRoll No: " + roll
+        );
 
         for (int i = 0; i < marks.length; i++) {
             System.out.print("S" + (i + 1) + "\t");

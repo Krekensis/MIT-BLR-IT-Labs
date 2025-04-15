@@ -1,5 +1,5 @@
 /*
-Update the Student class mark the attributes name and rollNumber as private, and student details as public. 
+9b. Update the Student class mark the attributes name and rollNumber as private, and student details as public. 
 Create public setter methods to assign values to name and rollNumber. Create a PrivateAccessDemo class in the same package, 
 that uses the setter methods to set the values for name and rollNumber and displays the details. Try to access the name and 
 rollNumber attributes directly from the PrivateAccessDemo class and note the errors.

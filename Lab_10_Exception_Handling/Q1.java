@@ -1,5 +1,5 @@
 /*
-Write a program to validate the age of a student during their registration. If the age is not between 18 and 60, throw an IllegalArgumentException. 
+10a. Write a program to validate the age of a student during their registration. If the age is not between 18 and 60, throw an IllegalArgumentException. 
 Create Student class with Private attributes name and age. Add method registerStudent(String name, int age) that throws an IllegalArgumentException 
 if the age is invalid (that is, not between 18 and 60). Write StudentAgeValidationDemo class to create instance of student class and 
 invoke registerStudent method with valid and invalid data. Catch the exception and display an error message for invalid input.
@@ -30,9 +30,11 @@ class Student {
     }
 
     void disp() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Roll No: " + roll);
+        System.out.println(
+            "Name: " + name + 
+            "\nAge: " + age + 
+            "\nRoll No: " + roll
+        );
     }
 }
 

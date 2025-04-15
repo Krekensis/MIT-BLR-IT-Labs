@@ -1,5 +1,5 @@
 /*
-9b. Create a package edu.manipal.mit. Create a Student class to store their name and roll number, define a method to display these details. 
+9a.2. Create a package edu.manipal.mit. Create a Student class to store their name and roll number, define a method to display these details. 
 Both variables and method should use the default access modifier. Creates another class DefaultAccessDemo in the same package to set the 
 student details and display them. Create a new package edu.manipal.kmc. Demonstrate that the default access modifier restricts access when 
 you try to use the Student class from a different package and note the compilation errors.
