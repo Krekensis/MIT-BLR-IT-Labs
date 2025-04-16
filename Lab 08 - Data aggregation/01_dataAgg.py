@@ -4,7 +4,7 @@ DATASET IS FUCKED UP
 
 import pandas as pd
 import matplotlib.pyplot as plt
-#lab 8
+#Lab 08
 # Load datasets
 file_paths = {
     "customers": "customers.csv",

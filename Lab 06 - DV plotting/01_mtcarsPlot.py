@@ -24,7 +24,7 @@ sea.histplot(data.mpg, kde=True, color='#3d6aff')
 mplot.title('Distribution of mpg')
 mplot.xlabel('Miles Per Gallon')
 mplot.ylabel('Frequency')
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_a_histogram.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q1_a_histogram.png")
 mplot.show()
 
 #b
@@ -33,7 +33,7 @@ sea.boxplot(data.hp, color='#3d6aff')
 mplot.title('Boxplot for Horsepower (hp)')
 mplot.xlabel('Horsepower (hp)')
 mplot.ylabel('Values')
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_b_boxplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q1_b_boxplot.png")
 mplot.show()
 
 #c
@@ -43,7 +43,7 @@ mplot.title('Scatter plot between Horsepower (hp) and mpg', fontsize=20)
 mplot.xlabel('Horsepower (hp)', fontsize=15)
 mplot.ylabel('Miles Per Gallon (mpg)', fontsize=15)
 mplot.tick_params(axis='both', which='major', labelsize=15)
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_c_scatterplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q1_c_scatterplot.png")
 mplot.show()
 
 #d
@@ -57,5 +57,5 @@ mplot.ylabel('Average mpg')
 for i, v in enumerate(avg_mpg.values):
     mplot.text(i, v, f'{v:.2f}', ha='center', va='bottom')
 
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q1_d_barplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q1_d_barplot.png")
 mplot.show()

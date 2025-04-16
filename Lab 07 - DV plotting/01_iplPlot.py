@@ -20,7 +20,7 @@ sea.boxplot(data, x="over", y="total_runs", palette='plasma')
 mplot.title('Distribution of total runs scored in each over')
 mplot.xlabel('Over')
 mplot.ylabel('Total Runs')
-mplot.savefig("./Lab 7 - DV plotting/Graphs/Q1_a_boxplot.png")
+mplot.savefig("./Lab 07 - DV plotting/Graphs/Q1_a_boxplot.png")
 mplot.show()
 
 #b
@@ -34,14 +34,14 @@ mplot.title('Top 10 batters with highest total runs')
 mplot.xlabel('Batter')
 mplot.ylabel('Total Runs')
 mplot.xticks(rotation=30)
-mplot.savefig("./Lab 7 - DV plotting/Graphs/Q1_b_barplot.png")
+mplot.savefig("./Lab 07 - DV plotting/Graphs/Q1_b_barplot.png")
 mplot.show()
 
 #c
 mplot.figure(figsize=(8, 6))
 sea.countplot(data=data, x='extras_type', palette='viridis')
 mplot.title('Frequency of different extra types')
-mplot.savefig("./Lab 7 - DV plotting/Graphs/Q1_c_countplot.png")
+mplot.savefig("./Lab 07 - DV plotting/Graphs/Q1_c_countplot.png")
 mplot.show()
 
 
@@ -54,7 +54,7 @@ mplot.pie(dkind)
 mplot.legend(labels, title="Dismissal Kind", loc=(0.8, 0.3))
 mplot.title('Proportion of different modes of dismissal')
 mplot.axis('equal')
-mplot.savefig("./Lab 7 - DV plotting/Graphs/Q1_d_piechart.png")
+mplot.savefig("./Lab 07 - DV plotting/Graphs/Q1_d_piechart.png")
 mplot.show()
 
 #e
@@ -73,5 +73,5 @@ mplot.xlabel('Economy')
 mplot.ylabel('Overs Bowled')
 mplot.title('Bowler Economy vs Overs Bowled (IPL Dataset)')
 mplot.grid(True)
-mplot.savefig("./Lab 7 - DV plotting/Graphs/Q1_e_scatterplot.png")
+mplot.savefig("./Lab 07 - DV plotting/Graphs/Q1_e_scatterplot.png")
 mplot.show()

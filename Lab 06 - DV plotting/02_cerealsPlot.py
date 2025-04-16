@@ -19,7 +19,7 @@ mplot.figure(figsize=(8, 6))
 sea.boxplot(data=data, orient='h', palette='plasma')
 mplot.title('Boxplot for cereals dataset')
 mplot.xlabel('Values')
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_a_boxplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_a_boxplot.png")
 mplot.show()
 
 #a2
@@ -28,7 +28,7 @@ sea.histplot(data=data, palette='viridis')
 mplot.title('Histogram for cereals dataset')
 mplot.xlabel('Values')
 mplot.ylabel('Frequency')
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_a_histogram.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_a_histogram.png")
 mplot.show()
 
 #b1
@@ -45,7 +45,7 @@ for i, v in enumerate([hiRating['Rating'], loRating['Rating']]):
     cereal_name = hiRating['Name'] if i == 0 else loRating['Name']
     mplot.text(i, v, f'{cereal_name} = {v:.2f}', ha='center', va='bottom')
 
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_b_barplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_b_barplot.png")
 mplot.show()
 
 #b2
@@ -59,7 +59,7 @@ for i, v in enumerate([hiRating['Rating'], loRating['Rating']]):
     cereal_name = hiRating['Name'] if i == 0 else loRating['Name']
     mplot.text(i, v, f'{cereal_name} = {v:.2f}', ha='center', va='bottom')
 
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_b_scatterplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_b_scatterplot.png")
 mplot.show()
 
 #c
@@ -68,7 +68,7 @@ sea.regplot(data=data, x='Sugars', y='Rating', scatter_kws={'color': '#69d6b7', 
 mplot.title('Scatter plot between Sugar content and Cereal Ratings with Regression Line')
 mplot.xlabel('Sugar content')
 mplot.ylabel('Rating')
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_c_regScatterplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_c_regScatterplot.png")
 mplot.show()
 
 #d
@@ -82,5 +82,5 @@ mplot.ylabel('Average Rating')
 for i, v in enumerate(avg_rating.values):
     mplot.text(i, v, f'{v:.2f}', ha='center', va='bottom')
 
-mplot.savefig("./Lab 6 - DV plotting/Graphs/Q2_d_barplot.png")
+mplot.savefig("./Lab 06 - DV plotting/Graphs/Q2_d_barplot.png")
 mplot.show()
