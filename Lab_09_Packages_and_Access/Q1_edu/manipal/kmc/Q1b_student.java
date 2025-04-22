@@ -6,7 +6,7 @@ you try to use the Student class from a different package and note the compilati
 */
 
 package Lab_09_Packages_and_Access.Q1_edu.manipal.kmc;
-import Lab_09_Packages_and_Access.Q1_eduPackage.edu_manipal_mit.*;
+import Lab_09_Packages_and_Access.Q1_edu.manipal.mit.*;
 
 @SuppressWarnings("unused")
 

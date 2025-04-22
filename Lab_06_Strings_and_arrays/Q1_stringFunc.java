@@ -72,13 +72,14 @@ public class Q1_stringFunc {
     }
 
     public static String reverse(String str) {
-        char[] arr = str.toCharArray();
-        for (int i = 0; i < arr.length / 2; i++) {
-            char temp = arr[i];
-            arr[i] = arr[arr.length - i - 1];
-            arr[arr.length - i - 1] = temp;
-        }
-        return new String(arr);
+        /*
+        String rev = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev += str.charAt(i);
+        
+        return new rev;
+        */
+        return new StringBuilder(str).reverse().toString();
     }
 
     public static String concat(String str) {

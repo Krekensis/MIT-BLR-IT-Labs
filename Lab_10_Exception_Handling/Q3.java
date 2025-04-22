@@ -8,15 +8,15 @@ package Lab_10_Exception_Handling;
 
 class Student1 {
     String name;
-    int age;
-    double total, avg, nsub;
+    int age, total, nsub;
+    double avg;
 
     Student1(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    void calc(double total, double nsub) {
+    void calc(int total, int nsub){
         try {
             if (total == 0 || nsub == 0) {
                 throw new ArithmeticException("Value cannot be 0.");
@@ -26,8 +26,8 @@ class Student1 {
                 avg = total / nsub;
                 display();
             }
-        } catch (ArithmeticException a) {
-            System.out.println("Error: " + a.getMessage());
+        } catch (ArithmeticException err) {
+            System.out.println("Error: " + err.getMessage());
         }
     }
 
@@ -47,10 +47,10 @@ class Q3 {
     public static void main(String[] args) {
         Student1 s1 = new Student1("Mario", 19);
         System.out.println("Student 1:");
-        s1.calc(50.0, 5.0);
+        s1.calc(50, 5);
 
         Student1 s2 = new Student1("Luigi", 19);
         System.out.println("\nStudent 2:");
-        s2.calc(0.0, 5.0);
+        s2.calc(5, 0);
     }
 }

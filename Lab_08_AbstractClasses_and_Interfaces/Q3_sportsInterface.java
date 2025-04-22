@@ -71,9 +71,9 @@ class Q3_sportsInterface {
             grade = "C";
         } else if (avg < 35) {
             grade = "F";
-        } else
+        } else {
             grade = "D";
-
+        }
         System.out.println("Student details:\nName:\t" + s1.name);
         System.out.println("Roll Number:\t" + s1.getRoll());
         s1.getMarks();

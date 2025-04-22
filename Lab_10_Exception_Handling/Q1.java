@@ -2,10 +2,11 @@
 10a. Write a program to validate the age of a student during their registration. If the age is not between 18 and 60, throw an IllegalArgumentException. 
 Create Student class with Private attributes name and age. Add method registerStudent(String name, int age) that throws an IllegalArgumentException 
 if the age is invalid (that is, not between 18 and 60). Write StudentAgeValidationDemo class to create instance of student class and 
-invoke registerStudent method with valid and invalid data. Catch the exception and display an error message for invalid input.
+invoke registerStudent method with valid and invalid data. Catch the exception and displaylay an error message for invalid input.
 */
 package Lab_10_Exception_Handling;
 import java.util.Random;
+import java.util.Scanner;
 
 class Student {
     private String name;
@@ -22,14 +23,14 @@ class Student {
                 this.age = age;
                 System.out.println("Student registered succesfully.");
                 roll = rand.nextInt(245000000, 245999999);
-                disp();
+                display();
             }
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    void disp() {
+    void display() {
         System.out.println(
             "Name: " + name + 
             "\nAge: " + age + 
@@ -40,13 +41,25 @@ class Student {
 
 public class Q1 {
     public static void main(String[] args) {
-        Student s1 = new Student();
-        Student s2 = new Student();
+        
+        Scanner sc = new Scanner(System.in);
+        int n;
+        System.out.print("Enter number of students: ");
+        n = sc.nextInt();
 
-        System.out.println("Student 1:");
-        s1.register("Mario", 18);
+        Student studs[] = new Student[n];
+        for (int i = 0; i < n; i++) {
+            studs[i] = new Student();
+        }
 
-        System.out.println("\nStudent 2:");
-        s2.register("Luigi", 65);
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name of student " + (i + 1) + ": ");
+            String name = sc.nextLine();
+            sc.nextLine();
+            System.out.print("Enter age of student " + (i + 1) + ": ");
+            int age = sc.nextInt();
+            studs[i].register(name, age);
+        }
+        sc.close();
     }
 }
