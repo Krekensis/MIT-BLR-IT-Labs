@@ -27,18 +27,18 @@ df = df.drop_duplicates()
 df['Sentiment'] = df['Sentiment'].map({'Positive': 1, 'Negative': 0})
 
 # 4
-unique_reviews_count = df['Text'].nunique()
-print(f"Number of unique reviews: {unique_reviews_count}")
+uniqueRevCount = df['Text'].nunique()
+print(f"Number of unique reviews: {uniqueRevCount}")
 
 # 5
 df['Text'] = df['Text'].str.replace('bad', 'poor', case=False)
 
 # 6
 df['Review_Length'] = df['Text'].apply(len)
-longest_review = df.loc[df['Review_Length'].idxmax(), 'Text']
-shortest_review = df.loc[df['Review_Length'].idxmin(), 'Text']
-print(f"Longest review: {longest_review}")
-print(f"Shortest review: {shortest_review}")
+longRev = df.loc[df['Review_Length'].idxmax(), 'Text']
+shortRev = df.loc[df['Review_Length'].idxmin(), 'Text']
+print(f"Longest review: {longRev}")
+print(f"Shortest review: {shortRev}")
 
 # 7
 df['Sentiment'].value_counts().plot(kind='bar', color=['red', 'green'])

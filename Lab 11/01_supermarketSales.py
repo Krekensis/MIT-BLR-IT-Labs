@@ -41,7 +41,6 @@ mplot.show()
 # 3
 mplot.figure(figsize=(9, 8))
 catRevenue = df.groupby('Product line')['Total'].sum()
-mplot.bar(catRevenue.index, catRevenue.values, color='blue')
 sea.barplot(x=catRevenue.index, y=catRevenue.values, palette='plasma')
 mplot.xlabel('Product Line')
 mplot.ylabel('Total Revenue')
