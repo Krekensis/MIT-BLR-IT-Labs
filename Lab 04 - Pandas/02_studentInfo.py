@@ -32,4 +32,4 @@ highest_avg = df['Total Marks'].idxmax()
 print('Student with highest average:', df['Name'][highest_avg])
 
 failed = df[df['Marks2'] < 40]
-print('Number of students failed in Marks2:', len(failed))
+print('Number of students failed in Marks2:',len(failed))

@@ -20,7 +20,7 @@ for index, row in data.iterrows():
 '''
 #a
 mplot.figure(figsize=(8, 6))
-sea.histplot(data.mpg, kde=True, color='#3d6aff')
+sea.histplot(data.mpg, kde=True, color='#3d6aff') # KDE: Kernel Density Estimate
 mplot.title('Distribution of mpg')
 mplot.xlabel('Miles Per Gallon')
 mplot.ylabel('Frequency')

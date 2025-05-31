@@ -24,6 +24,15 @@ data = data.drop(columns=["Cold", "Nabisco", "Quaker", "Kelloggs", "GeneralMills
 
 print('\nInitial data:\n', data)
 
+# using smth like fillna
+# data = data.fillna(data.mean())
+# data = data.replace(-1, np.nan)
+# data = data.fillna(data.mean())
+# data = data.fillna(data.median())
+# data = data.fillna(data.mode().iloc[0])
+# data = data.fillna(data.median())
+# data = data.fillna(data.mean())
+
 for column in data.columns:
     if data[column].dtype in [np.int64, np.float64]:
         mean_value = data[column][data[column] != -1].mean()
@@ -31,6 +40,7 @@ for column in data.columns:
 
 print('\nData after replacing -1 with mean:\n', data)
 print("\n5 number summary:\n", data.describe().loc[['min', '25%', '50%', '75%', 'max']])
+
 
 for column in data.columns:
     if data[column].dtype in [np.int64, np.float64]:

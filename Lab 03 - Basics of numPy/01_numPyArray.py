@@ -8,7 +8,7 @@ import numpy as np
 arr = np.random.randint(1, 50, (3, 4))
 print('Array:', arr)
 
-print('Mean:', {np.mean(arr)})
+print('Mean:', np.mean(arr))
 print('Median:', np.median(arr))
 print('Standard deviation:', np.std(arr))
 
