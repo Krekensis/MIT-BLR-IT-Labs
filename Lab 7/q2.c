@@ -6,22 +6,23 @@
 // ---------- CHAR STACK ----------
 struct CharNode {
     char data;
-    struct CharNode* next;
+    struct Node* next;
 };
 
-void pushChar(struct CharNode** top, char c) {
-    struct CharNode* temp = (struct CharNode*)malloc(sizeof(struct CharNode));
+// Stack operations
+void push(struct Node** top, char c) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
     temp->data = c; temp->next = *top; *top = temp;
 }
-char popChar(struct CharNode** top) {
-    if (!*top) return '\0';
-    struct CharNode* temp = *top;
+char pop(struct Node** top) {
+    if(!*top) return '\0';
+    struct Node* temp = *top;
     char c = temp->data;
     *top = temp->next;
     free(temp);
     return c;
 }
-char peekChar(struct CharNode* top) { return top ? top->data : '\0'; }
+char peek(struct Node* top) { return top ? top->data : '\0'; }
 int precedence(char c) {
     if(c=='^') return 3;
     if(c=='*'||c=='/') return 2;
@@ -53,7 +54,7 @@ int popInt(struct IntNode** top) {
 
 // ---------- i. Infix to Postfix (with spaces) ----------
 void infixToPostfix(char* infix, char* postfix) {
-    struct CharNode* stack = NULL;
+    struct Node* stack = NULL;
     int k = 0;
     for (int i = 0; infix[i]; i++) {
         char c = infix[i];
@@ -88,41 +89,20 @@ void infixToPostfix(char* infix, char* postfix) {
     postfix[k] = '\0';
 }
 
-// ---------- ii. Evaluate Postfix (with spaces) ----------
-int evaluatePostfix(char *expression) {
-    struct IntNode* stack = NULL;
-
-    for (int i = 0; expression[i] != '\0'; i++) {
-        if (expression[i] == ' ') continue;
-
-        if (isdigit(expression[i])) {
-            int num = 0;
-            while (isdigit(expression[i])) {
-                num = num * 10 + (expression[i] - '0');
-                i++;
-            }
-            i--; // step back
-            pushInt(&stack, num);
-        }
-        else if (strchr("+-*/^", expression[i])) {
-            int operand2 = popInt(&stack);
-            int operand1 = popInt(&stack);
-            switch (expression[i]) {
-                case '+': pushInt(&stack, operand1 + operand2); break;
-                case '-': pushInt(&stack, operand1 - operand2); break;
-                case '*': pushInt(&stack, operand1 * operand2); break;
-                case '/':
-                    if (operand2 == 0) {
-                        printf("Division by zero error\n");
-                        exit(1);
-                    }
-                    pushInt(&stack, operand1 / operand2); break;
-                case '^': {
-                    int res = 1;
-                    for (int j=0; j<operand2; j++) res *= operand1;
-                    pushInt(&stack, res);
-                    break;
-                }
+// ii. Evaluate Postfix
+int evaluatePostfix(char* postfix) {
+    struct Node* stack = NULL;
+    for(int i=0; postfix[i]; i++){
+        char c = postfix[i];
+        if(isdigit(c)) push(&stack, c-'0'); // push as int
+        else {
+            int b = pop(&stack);
+            int a = pop(&stack);
+            switch(c){
+                case '+': push(&stack, a+b); break;
+                case '-': push(&stack, a-b); break;
+                case '*': push(&stack, a*b); break;
+                case '/': push(&stack, a/b); break;
             }
         }
     }
