@@ -6,22 +6,22 @@
 struct Node {
     char data;
     struct Node* next;
-};
+} Node;
 
 // Stack operations
-void push(struct Node** top, char c) {
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+void push(Node** top, char c) {
+    Node* temp = (Node*)malloc(sizeof(Node));
     temp->data = c; temp->next = *top; *top = temp;
 }
-char pop(struct Node** top) {
+char pop(Node** top) {
     if(!*top) return '\0';
-    struct Node* temp = *top;
+    Node* temp = *top;
     char c = temp->data;
     *top = temp->next;
     free(temp);
     return c;
 }
-char peek(struct Node* top) { return top ? top->data : '\0'; }
+char peek(Node* top) { return top ? top->data : '\0'; }
 int precedence(char c) {
     if(c=='^') return 3;
     if(c=='*'||c=='/') return 2;
@@ -31,7 +31,7 @@ int precedence(char c) {
 
 // i. Infix to Postfix
 void infixToPostfix(char* infix, char* postfix) {
-    struct Node* stack = NULL;
+    Node* stack = NULL;
     int k = 0;
     for(int i=0; infix[i]; i++){
         char c = infix[i];
@@ -52,7 +52,7 @@ void infixToPostfix(char* infix, char* postfix) {
 
 // ii. Evaluate Postfix
 int evaluatePostfix(char* postfix) {
-    struct Node* stack = NULL;
+    Node* stack = NULL;
     for(int i=0; postfix[i]; i++){
         char c = postfix[i];
         if(isdigit(c)) push(&stack, c-'0'); // push as int
