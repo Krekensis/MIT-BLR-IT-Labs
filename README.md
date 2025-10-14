@@ -1,3 +1,3 @@
-# PPS Lab - CSE 1181
-- Answers for PPS Lab Manual [MIT Blr](https://www.manipal.edu/mu/campuses/mahe-bengaluru/academics/institution-list/mitblr.html) `Semester 1` `2024-2025`
-- Lab Manual PDF: [CSE 1181 PPS Lab Manual.pdf](https://github.com/user-attachments/files/18050939/CSE.1181.PPS.Lab.Manual.pdf)
+# DS Lab - CSS 2101
+- Answers for PPS Lab Manual [MIT Blr](https://www.manipal.edu/mu/campuses/mahe-bengaluru/academics/institution-list/mitblr.html) `Semester 3` `2025-2026`
+- Lab Manual PDF: [CSS 2101 DS Lab Manual.pdf](https://github.com/user-attachments/files/22900446/2025_DS.Lab.Manual.pdf)
