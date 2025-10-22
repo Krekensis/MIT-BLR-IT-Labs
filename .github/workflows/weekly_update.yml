@@ -40,14 +40,15 @@ jobs:
       - name: Update DS
         run: bash ./lab_manage.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
 
-      - name: Commit & push updates
+      - name: Push updates
         env:
           GIT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-update labs on $(date)"
+          git fetch origin main
+
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo "New commits detected, pushing to GitHub"
             git push https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git HEAD:main
           else
-            echo "No updates to push"
+            echo "No new commits to push"
           fi
