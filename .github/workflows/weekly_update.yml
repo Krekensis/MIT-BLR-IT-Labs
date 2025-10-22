@@ -44,5 +44,5 @@ jobs:
         env:
           GIT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git 
-          git push origin main
+          git commit -m "Auto-update labs on $(date)"
+          git push https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git HEAD:main
