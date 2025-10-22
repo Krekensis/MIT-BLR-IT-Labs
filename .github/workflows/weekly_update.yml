@@ -44,11 +44,5 @@ jobs:
         env:
           GIT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-update labs on $(date)"
-            git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git
-            git push origin main
-          else
-            echo "No updates to push"
-          fi
+          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git 
+          git push origin main
