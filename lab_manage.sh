@@ -1,12 +1,7 @@
 #!/bin/bash
 
 # Usage:
-#   ./lab_manager.sh <add|update> <repo_path_or_url> <semester_folder> <lab_folder_name> [branch]
-#
-# Examples:
-#   ./lab_manager.sh add ../Lab1 sem2 Lab1 main
-#   ./lab_manager.sh add https://github.com/YourUser/Lab1.git sem2 Lab1 main
-#   ./lab_manager.sh update https://github.com/YourUser/Lab1.git sem2 Lab1 main
+#   ./lab_manage.sh <add|update> <repo_path_or_url> <semester_folder> <lab_folder_name> [branch]
 
 set -e
 
@@ -23,6 +18,14 @@ fi
 
 REMOTE_NAME="temp_${LAB_NAME}"
 
+cleanup() {
+  if git remote get-url "$REMOTE_NAME" &>/dev/null; then
+    echo "Cleaning up temporary remote: $REMOTE_NAME"
+    git remote remove "$REMOTE_NAME"
+  fi
+}
+trap cleanup EXIT
+
 echo "Adding remote: $REMOTE_NAME from $REPO"
 git remote add "$REMOTE_NAME" "$REPO"
 
@@ -38,12 +41,7 @@ elif [ "$ACTION" = "update" ]; then
   git subtree pull --prefix="$TARGET_PATH" "$REMOTE_NAME" "$BRANCH" -m "Update $LAB_NAME subtree"
 else
   echo "Unknown action: $ACTION (use 'add' or 'update')"
-  git remote remove "$REMOTE_NAME"
   exit 1
 fi
-
-# Step 4: Clean up temporary remote
-echo "Removing temporary remote..."
-git remote remove "$REMOTE_NAME"
 
 echo "✅ Done! $ACTION completed for $LAB_NAME"

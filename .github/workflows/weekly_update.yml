@@ -1,0 +1,43 @@
+name: Weekly Lab Update
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-labs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make lab_manager.sh executable
+        run: chmod +x ./lab_manage.sh
+
+      - name: Update PPS
+        run: ./lab_manager.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
+
+      - name: Update DV
+        run: ./lab_manager.sh update https://github.com/Krekensis/dv_lab_sem2_2025.git "Semester 2" DV main
+
+      - name: Update OOP
+        run: ./lab_manager.sh update https://github.com/Krekensis/oop_lab_sem2_2025.git "Semester 2" OOP main
+
+      - name: Update DS
+        run: ./lab_manager.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
+
+      - name: Push updates
+        env:
+          GIT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git
+          git push origin main
