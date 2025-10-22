@@ -29,16 +29,16 @@ jobs:
           git clean -fd
 
       - name: Update PPS
-        run: ./lab_manage.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
 
       - name: Update DV
-        run: ./lab_manage.sh update https://github.com/Krekensis/dv_lab_sem2_2025.git "Semester 2" DV main
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/dv_lab_sem2_2025.git "Semester 2" DV main
 
       - name: Update OOP
-        run: ./lab_manage.sh update https://github.com/Krekensis/oop_lab_sem2_2025.git "Semester 2" OOP main
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/oop_lab_sem2_2025.git "Semester 2" OOP main
 
       - name: Update DS
-        run: ./lab_manage.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
 
       - name: Commit & push updates
         env:
