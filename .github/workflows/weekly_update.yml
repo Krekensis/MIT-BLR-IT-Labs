@@ -23,6 +23,11 @@ jobs:
       - name: Make lab_manage.sh executable
         run: chmod +x ./lab_manage.sh
 
+      - name: Prepare working tree
+        run: |
+          git reset --hard
+          git clean -fd
+
       - name: Update PPS
         run: ./lab_manage.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
 
@@ -35,9 +40,15 @@ jobs:
       - name: Update DS
         run: ./lab_manage.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
 
-      - name: Push updates
+      - name: Commit & push updates
         env:
           GIT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git
-          git push origin main
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update labs on $(date)"
+            git remote set-url origin https://x-access-token:${GIT_TOKEN}@github.com/Krekensis/MIT-BLR-IT-Labs.git
+            git push origin main
+          else
+            echo "No updates to push"
+          fi
