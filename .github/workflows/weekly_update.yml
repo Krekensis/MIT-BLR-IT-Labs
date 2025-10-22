@@ -20,20 +20,20 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Make lab_manager.sh executable
+      - name: Make lab_manage.sh executable
         run: chmod +x ./lab_manage.sh
 
       - name: Update PPS
-        run: ./lab_manager.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
+        run: ./lab_manage.sh update https://github.com/Krekensis/pps_lab_sem1_2024.git "Semester 1" PPS main
 
       - name: Update DV
-        run: ./lab_manager.sh update https://github.com/Krekensis/dv_lab_sem2_2025.git "Semester 2" DV main
+        run: ./lab_manage.sh update https://github.com/Krekensis/dv_lab_sem2_2025.git "Semester 2" DV main
 
       - name: Update OOP
-        run: ./lab_manager.sh update https://github.com/Krekensis/oop_lab_sem2_2025.git "Semester 2" OOP main
+        run: ./lab_manage.sh update https://github.com/Krekensis/oop_lab_sem2_2025.git "Semester 2" OOP main
 
       - name: Update DS
-        run: ./lab_manager.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
+        run: ./lab_manage.sh update https://github.com/Krekensis/ds_lab_sem3_2025.git "Semester 3" DS main
 
       - name: Push updates
         env:
