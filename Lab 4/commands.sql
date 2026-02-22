@@ -10,7 +10,7 @@ SELECT c.dept_name
 FROM Course c
 JOIN Takes t ON c.course_id = t.course_id
 GROUP BY c.dept_name
-HAVING COUNT(t.id) / COUNT(DISTINCT c.course_id) > 10;
+HAVING COUNT(t.id) / COUNT(DISTINCT c.course_id) > 2;
 
 -- 3. Find the total number of courses in each department.
 SELECT dept_name, COUNT(*) AS total_courses
@@ -23,10 +23,10 @@ FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 42000;
 
--- 5. Find enrolment of each section in Spring 2009.
+-- 5. Find enrolment of each section in Spring 2025.
 SELECT course_id, section_id, COUNT(id) AS enrolment
 FROM Takes
-WHERE semester = 'Spring' AND year = 2009
+WHERE semester = 'Spring' AND year = 2025
 GROUP BY course_id, section_id;
 
 -- ORDER BY
@@ -57,12 +57,12 @@ FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 42000;
 
--- 10. Sections with maximum enrolment in Spring 2010.
+-- 10. Sections with maximum enrolment in Spring 2026.
 SELECT course_id, section_id
 FROM (
     SELECT course_id, section_id, COUNT(id) AS cnt
     FROM Takes
-    WHERE semester = 'Spring' AND year = 2010
+    WHERE semester = 'Spring' AND year = 2026
     GROUP BY course_id, section_id
 )
 WHERE cnt = (
@@ -70,7 +70,7 @@ WHERE cnt = (
     FROM (
         SELECT COUNT(id) AS cnt
         FROM Takes
-        WHERE semester = 'Spring' AND year = 2010
+        WHERE semester = 'Spring' AND year = 2026
         GROUP BY course_id, section_id
     )
 );
@@ -93,12 +93,12 @@ WHERE NOT EXISTS (
     )
 );
 
--- 12. Avg salary where avg > 50000 AND instructors > 5.
+-- 12. Avg salary where avg > 50000 AND instructors > 3.
 SELECT dept_name, AVG(salary)
 FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 50000
-AND COUNT(*) > 5;
+AND COUNT(*) > 3;
 
 -- WITH CLAUSE
 
@@ -123,28 +123,28 @@ SELECT dept_name
 FROM dept_salary, avg_sal
 WHERE total_sal > avg_total;
 
--- 15. Sections with maximum enrolment in Fall 2009.
+-- 15. Sections with maximum enrolment in Fall 2025.
 WITH sec_count AS (
     SELECT course_id, section_id, COUNT(id) AS cnt
     FROM Takes
-    WHERE semester = 'Fall' AND year = 2009
+    WHERE semester = 'Fall' AND year = 2025
     GROUP BY course_id, section_id
 )
 SELECT course_id, section_id
 FROM sec_count
 WHERE cnt = (SELECT MAX(cnt) FROM sec_count);
 
--- 16. Departments where total student credits > Finance dept.
+-- 16. Departments where total student credits > finance dept.
 WITH dept_credits AS (
     SELECT dept_name, SUM(tot_cred) AS total_cred
     FROM Students
     GROUP BY dept_name
 ),
-finance_total AS (
+fin_total AS (
     SELECT total_cred
     FROM dept_credits
-    WHERE dept_name = 'Finance'
+    WHERE dept_name = 'FIN'
 )
 SELECT dept_name
 FROM dept_credits
-WHERE total_cred > (SELECT total_cred FROM finance_total);
+WHERE total_cred > (SELECT total_cred FROM fin_total);
