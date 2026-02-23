@@ -52,7 +52,10 @@ jobs:
 
       - name: Update OOSD
         run: bash ./lab_manage.sh update https://github.com/Krekensis/oosd_lab_sem4_2026.git "Semester 4" OOSD main
-        
+      
+      - name: Update DBS
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/dbs_lab_sem4_2026.git "Semester 4" DBS main
+
       - name: Push updates
         run: |
           git fetch origin main
