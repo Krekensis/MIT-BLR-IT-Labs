@@ -72,6 +72,7 @@ public class Q1_HotelBooking {
         addRoom(102, "Suite", 2500.0, true);
 
         viewRoom(101);
+        viewRoom(102);
         updateStatus(101, true);
         viewRoom(101);
     }
