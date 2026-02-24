@@ -1,0 +1,41 @@
+INSERT ALL
+  INTO EMPLOYEE VALUES ('John', 'B', 'Smith', '123456789', '1965-01-09', '731 Fondren, Houston, TX', 'M', 30000, NULL, 5);
+  INTO EMPLOYEE VALUES ('Franklin', 'T', 'Wong', '333445555', '1955-12-08', '638 Voss, Houston, TX', 'M', 40000, '123456789', 5);
+  INTO EMPLOYEE VALUES ('Alicia', 'J', 'Zelaya', '999887777', '1968-01-19', '3321 Castle, Spring, TX', 'F', 25000, '123456789', 4);
+  INTO EMPLOYEE VALUES ('Jennifer', 'S', 'Wallace', '987654321', '1941-06-20', '291 Berry, Bellaire, TX', 'F', 43000, '123456789', 4);
+  INTO EMPLOYEE VALUES ('Ramesh', 'K', 'Narayan', '666884444', '1962-09-15', '975 Fire Oak, Humble, TX', 'M', 38000, '333445555', 5);
+  INTO EMPLOYEE VALUES ('Joyce', 'A', 'English', '453453453', '1972-07-31', '5631 Rice, Houston, TX', 'F', 25000, '333445555', 5);
+  INTO EMPLOYEE VALUES ('Ahmad', 'V', 'Jabbar', '987987987', '1969-03-29', '980 Dallas, Houston, TX', 'M', 25000, '987654321', 4);
+  INTO EMPLOYEE VALUES ('James', 'E', 'Borg', '888665555', '1937-11-10', '450 Stone, Houston, TX', 'M', 55000, NULL, 1);
+SELECT * FROM DUAL
+
+INSERT ALL
+  INTO DEPARTMENT VALUES ('Research', 5, '333445555', '1988-05-22');
+  INTO DEPARTMENT VALUES ('Administration', 4, '987654321', '1995-01-01');
+  INTO DEPARTMENT VALUES ('Headquarters', 1, '888665555', '1981-06-19');
+SELECT * FROM DUAL
+
+INSERT ALL
+  INTO PROJECT VALUES ('ProductX', 1, 'Bellaire', 5);
+  INTO PROJECT VALUES ('ProductY', 2, 'Sugarland', 5);
+  INTO PROJECT VALUES ('ProductZ', 3, 'Houston', 5);
+  INTO PROJECT VALUES ('Computerization', 10, 'Stafford', 4);
+  INTO PROJECT VALUES ('Reorganization', 20, 'Houston', 1);
+  INTO PROJECT VALUES ('Newbenefits', 30, 'Stafford', 4);
+  INTO PROJECT VALUES ('MobileApp', 40, 'Stanford', 5);
+SELECT * FROM DUAL
+
+INSERT ALL
+  INTO WORKS_ON VALUES ('123456789', 1, 32.5);
+  INTO WORKS_ON VALUES ('453453453', 1, 20.0);
+  INTO WORKS_ON VALUES ('333445555', 1, 10.0);
+  INTO WORKS_ON VALUES ('333445555', 40, 10.0);
+  INTO WORKS_ON VALUES ('123456789', 40, 5.0);
+  INTO WORKS_ON VALUES ('666884444', 40, 20.0);
+SELECT * FROM DUAL
+
+INSERT ALL
+  INTO DEPENDENT VALUES ('333445555', 'Alice', 'F', '1986-04-05', 'DAUGHTER');
+  INTO DEPENDENT VALUES ('123456789', 'John', 'M', '1988-12-30', 'SON');
+  INTO DEPENDENT VALUES ('987654321', 'Abner', 'M', '1942-02-28', 'SPOUSE');
+SELECT * FROM DUAL
