@@ -55,6 +55,9 @@ jobs:
       
       - name: Update DBS
         run: bash ./lab_manage.sh update https://github.com/Krekensis/dbs_lab_sem4_2026.git "Semester 4" DBS main
+      
+      - name: Update OS
+        run: bash ./lab_manage.sh update https://github.com/Krekensis/os_lab_sem4_2026.git "Semester 4" OS main
 
       - name: Push updates
         run: |
