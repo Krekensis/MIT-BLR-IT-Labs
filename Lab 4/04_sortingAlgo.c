@@ -1,3 +1,10 @@
+/*
+4. Write a multithreaded program that performs different sorting algorithms. The program should work as follows: the user enters 
+on the command line the number of elements to sort and the elements themselves. The program then creates separate threads, each 
+using a different sorting algorithm. Each thread sorts the array using its corresponding algorithm and displays the time taken 
+to produce the 48 LAB NO: 4 result. The main thread waits for all threads to finish and then displays the final sorted array. 
+*/
+
 #include <stdio.h>
 #include <pthread.h>
 #include <time.h>

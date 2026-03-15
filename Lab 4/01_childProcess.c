@@ -1,3 +1,8 @@
+/*
+1. Write a C program to create a child process. Display different messages in parent process and child process. 
+Display PID and PPID of both parent and child process. Block parent process until child completes using wait system call. 
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>

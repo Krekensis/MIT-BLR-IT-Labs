@@ -1,3 +1,8 @@
+/*
+3. Create a zombie (defunct) child process (a child with exit() call, but no corresponding wait() in the sleeping parent) and 
+allow the init process to adopt it (after parent terminates). Run the process as background process and run “ps” command. 
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
