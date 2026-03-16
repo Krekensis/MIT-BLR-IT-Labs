@@ -178,3 +178,25 @@ INSERT ALL -- (course_id, prereq_id)
   INTO Prereq VALUES ('CS201', 'CS101')
   INTO Prereq VALUES ('EC102', 'EC101')
 SELECT * FROM DUAL;
+
+
+-- course in both semesters
+INSERT INTO Section VALUES ('CS101','3','Fall',2025,'Block A','101','TS1');
+INSERT INTO Section VALUES ('CS101','4','Spring',2026,'Block A','201','TS6');
+
+-- unused course
+INSERT INTO Course VALUES ('CS999','AI Ethics','CSE',3);
+
+-- matching student/instructor name
+INSERT INTO Students VALUES (121,'Dr Rao','CSE',40);
+
+-- low budget department
+INSERT INTO Department VALUES ('BIO','Block H',1000);
+
+-- student who took all CSE courses
+INSERT INTO Students VALUES (122,'TestStudent','CSE',60);
+INSERT INTO Takes VALUES (122,'CS101','1','Fall',2024,'A');
+INSERT INTO Takes VALUES (122,'CS102','1','Spring',2025,'A');
+INSERT INTO Takes VALUES (122,'CS201','1','Spring',2026,'A');
+
+INSERT INTO Takes VALUES (117,'CS102','1','Spring',2025,'A');

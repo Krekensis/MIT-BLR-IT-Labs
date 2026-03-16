@@ -5,12 +5,16 @@ SELECT course_id, COUNT(DISTINCT id) AS student_count
 FROM Takes
 GROUP BY course_id;
 
--- 2. Find departments where average number of students > 10.
-SELECT c.dept_name
-FROM Course c
-JOIN Takes t ON c.course_id = t.course_id
-GROUP BY c.dept_name
-HAVING COUNT(t.id) / COUNT(DISTINCT c.course_id) > 2;
+-- 2. Find departments where average number of students > 5.
+SELECT dept_name
+FROM (
+    SELECT c.dept_name, c.course_id, COUNT(t.id) AS num_students
+    FROM Course c
+    JOIN Takes t ON c.course_id = t.course_id
+    GROUP BY c.dept_name, c.course_id
+) course_counts
+GROUP BY dept_name
+HAVING AVG(num_students) > 5;
 
 -- 3. Find the total number of courses in each department.
 SELECT dept_name, COUNT(*) AS total_courses
