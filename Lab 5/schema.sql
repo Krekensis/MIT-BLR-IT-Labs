@@ -1,57 +1,51 @@
-CREATE TABLE EMPLOYEE (
-    Fname VARCHAR(15) NOT NULL,
-    Minit VARCHAR(15) NOT NULL,
-    Lname VARCHAR(15) NOT NULL,
+CREATE TABLE Department(
+    Dnumber NUMBER PRIMARY KEY,
+    Dname VARCHAR2(50),
+    Mgr_ssn CHAR(9),
+    Mgr_start_date VARCHAR2(20)
+);
+
+CREATE TABLE Employee(
     Ssn CHAR(9) PRIMARY KEY,
-    Bdate VARCHAR(10),
-    Address VARCHAR(30),
-    Sex CHAR,
-    Salary DECIMAL(10, 2),
+    Fname VARCHAR2(20),
+    Minit CHAR(1),
+    Lname VARCHAR2(20),
+    Bdate VARCHAR2(20),
+    Address VARCHAR2(100),
+    Sex CHAR(1),
+    Salary NUMBER,
+    Dnumber NUMBER,
     Super_ssn CHAR(9),
-    Dno INT NOT NULL,
-    FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn)
+    FOREIGN KEY (Dnumber) REFERENCES Department(Dnumber),
+    FOREIGN KEY (Super_ssn) REFERENCES Employee(Ssn)
 );
 
-CREATE TABLE DEPARTMENT (
-    Dname VARCHAR(15) NOT NULL,
-    Dnumber INT PRIMARY KEY,
-    Mgr_ssn CHAR(9) NOT NULL,
-    Mgr_start_date VARCHAR(10),
-    UNIQUE (Dname),
-    FOREIGN KEY (Mgr_ssn) REFERENCES EMPLOYEE(Ssn)
+ALTER TABLE Department
+ADD FOREIGN KEY (Mgr_ssn) REFERENCES Employee(Ssn);
+
+CREATE TABLE Project(
+    Pnumber NUMBER PRIMARY KEY,
+    Pname VARCHAR2(50),
+    Plocation VARCHAR2(50),
+    Dnumber NUMBER,
+    FOREIGN KEY (Dnumber) REFERENCES Department(Dnumber)
 );
 
-CREATE TABLE DEPT_LOCATIONS (
-    Dnumber INT NOT NULL,
-    Dlocation VARCHAR(15) NOT NULL,
-    PRIMARY KEY (Dnumber, Dlocation),
-    FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT(Dnumber)
+CREATE TABLE Works_On(
+    Essn CHAR(9),
+    Pnumber NUMBER,
+    Hours NUMBER,
+    PRIMARY KEY(Essn,Pnumber),
+    FOREIGN KEY(Essn) REFERENCES Employee(Ssn),
+    FOREIGN KEY(Pnumber) REFERENCES Project(Pnumber)
 );
 
-CREATE TABLE PROJECT (
-    Pname VARCHAR(15) NOT NULL,
-    Pnumber INT PRIMARY KEY,
-    Plocation VARCHAR(15),
-    Dnum INT NOT NULL,
-    UNIQUE (Pname),
-    FOREIGN KEY (Dnum) REFERENCES DEPARTMENT(Dnumber)
-);
-
-CREATE TABLE WORKS_ON (
-    Essn CHAR(9) NOT NULL,
-    Pno INT NOT NULL,
-    Hours DECIMAL(3, 1) NOT NULL,
-    PRIMARY KEY (Essn, Pno),
-    FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn),
-    FOREIGN KEY (Pno) REFERENCES PROJECT(Pnumber)
-);
-
-CREATE TABLE DEPENDENT (
-    Essn CHAR(9) NOT NULL,
-    Dependent_name VARCHAR(15) NOT NULL,
-    Sex CHAR,
-    Bdate VARCHAR(10),
-    Relationship VARCHAR(8),
-    PRIMARY KEY (Essn, Dependent_name),
-    FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn)
+CREATE TABLE Dependent(
+    Essn CHAR(9),
+    Dependent_name VARCHAR2(50),
+    Sex CHAR(1),
+    Birth_date VARCHAR2(20),
+    Relationship VARCHAR2(20),
+    PRIMARY KEY(Essn,Dependent_name),
+    FOREIGN KEY(Essn) REFERENCES Employee(Ssn)
 );

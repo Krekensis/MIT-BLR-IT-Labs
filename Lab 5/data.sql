@@ -1,41 +1,40 @@
 INSERT ALL
-  INTO EMPLOYEE VALUES ('John', 'B', 'Smith', '123456789', '1965-01-09', '731 Fondren, Houston, TX', 'M', 30000, NULL, 5);
-  INTO EMPLOYEE VALUES ('Franklin', 'T', 'Wong', '333445555', '1955-12-08', '638 Voss, Houston, TX', 'M', 40000, '123456789', 5);
-  INTO EMPLOYEE VALUES ('Alicia', 'J', 'Zelaya', '999887777', '1968-01-19', '3321 Castle, Spring, TX', 'F', 25000, '123456789', 4);
-  INTO EMPLOYEE VALUES ('Jennifer', 'S', 'Wallace', '987654321', '1941-06-20', '291 Berry, Bellaire, TX', 'F', 43000, '123456789', 4);
-  INTO EMPLOYEE VALUES ('Ramesh', 'K', 'Narayan', '666884444', '1962-09-15', '975 Fire Oak, Humble, TX', 'M', 38000, '333445555', 5);
-  INTO EMPLOYEE VALUES ('Joyce', 'A', 'English', '453453453', '1972-07-31', '5631 Rice, Houston, TX', 'F', 25000, '333445555', 5);
-  INTO EMPLOYEE VALUES ('Ahmad', 'V', 'Jabbar', '987987987', '1969-03-29', '980 Dallas, Houston, TX', 'M', 25000, '987654321', 4);
-  INTO EMPLOYEE VALUES ('James', 'E', 'Borg', '888665555', '1937-11-10', '450 Stone, Houston, TX', 'M', 55000, NULL, 1);
-SELECT * FROM DUAL
+INTO Department VALUES (5,'Research',NULL,NULL)
+INTO Department VALUES (4,'Administration',NULL,NULL)
+INTO Department VALUES (1,'Headquarters',NULL,NULL)
+SELECT * FROM DUAL;
 
 INSERT ALL
-  INTO DEPARTMENT VALUES ('Research', 5, '333445555', '1988-05-22');
-  INTO DEPARTMENT VALUES ('Administration', 4, '987654321', '1995-01-01');
-  INTO DEPARTMENT VALUES ('Headquarters', 1, '888665555', '1981-06-19');
-SELECT * FROM DUAL
+INTO Employee VALUES ('1','John','B','Smith','1965-01-09','Houston, Texas','M',30000,5,NULL)
+INTO Employee VALUES ('2','Franklin','T','Wong','1955-12-08','Houston, Texas','M',40000,5,'1')
+INTO Employee VALUES ('3','Alicia','J','Zelaya','1968-01-19','Spring, Texas','F',25000,4,'1')
+INTO Employee VALUES ('4','Jennifer','S','Wallace','1941-06-20','Bellaire, Texas','F',43000,4,NULL)
+INTO Employee VALUES ('5','Ramesh','K','Narayan','1962-09-15','Houston, Texas','M',38000,5,'1')
+INTO Employee VALUES ('6','Joyce','A','English','1972-07-31','Houston, Texas','F',25000,5,'2')
+INTO Employee VALUES ('7','Ahmad','V','Jabbar','1969-03-29','Houston, Texas','M',25000,5,'2')
+SELECT * FROM DUAL;
+
+UPDATE Department SET Mgr_ssn='1',Mgr_start_date='2005-01-01' WHERE Dnumber=5;
+UPDATE Department SET Mgr_ssn='4',Mgr_start_date='2004-01-01' WHERE Dnumber=4;
+UPDATE Department SET Mgr_ssn='2',Mgr_start_date='2006-01-01' WHERE Dnumber=1;
 
 INSERT ALL
-  INTO PROJECT VALUES ('ProductX', 1, 'Bellaire', 5);
-  INTO PROJECT VALUES ('ProductY', 2, 'Sugarland', 5);
-  INTO PROJECT VALUES ('ProductZ', 3, 'Houston', 5);
-  INTO PROJECT VALUES ('Computerization', 10, 'Stafford', 4);
-  INTO PROJECT VALUES ('Reorganization', 20, 'Houston', 1);
-  INTO PROJECT VALUES ('Newbenefits', 30, 'Stafford', 4);
-  INTO PROJECT VALUES ('MobileApp', 40, 'Stanford', 5);
-SELECT * FROM DUAL
+INTO Project VALUES (1,'ProductX','Houston',5)
+INTO Project VALUES (2,'ProductY','Stanford',5)
+INTO Project VALUES (3,'ProductZ','Stanford',4)
+SELECT * FROM DUAL;
 
 INSERT ALL
-  INTO WORKS_ON VALUES ('123456789', 1, 32.5);
-  INTO WORKS_ON VALUES ('453453453', 1, 20.0);
-  INTO WORKS_ON VALUES ('333445555', 1, 10.0);
-  INTO WORKS_ON VALUES ('333445555', 40, 10.0);
-  INTO WORKS_ON VALUES ('123456789', 40, 5.0);
-  INTO WORKS_ON VALUES ('666884444', 40, 20.0);
-SELECT * FROM DUAL
+INTO Works_On VALUES ('1',1,32)
+INTO Works_On VALUES ('2',1,20)
+INTO Works_On VALUES ('5',1,20)
+INTO Works_On VALUES ('6',2,10)
+INTO Works_On VALUES ('7',2,10)
+INTO Works_On VALUES ('3',3,15)
+SELECT * FROM DUAL;
 
 INSERT ALL
-  INTO DEPENDENT VALUES ('333445555', 'Alice', 'F', '1986-04-05', 'DAUGHTER');
-  INTO DEPENDENT VALUES ('123456789', 'John', 'M', '1988-12-30', 'SON');
-  INTO DEPENDENT VALUES ('987654321', 'Abner', 'M', '1942-02-28', 'SPOUSE');
-SELECT * FROM DUAL
+INTO Dependent VALUES ('1','John','M','2000-01-01','Son')
+INTO Dependent VALUES ('2','Alice','F','2001-02-02','Daughter')
+INTO Dependent VALUES ('4','Mark','M','1998-03-03','Son')
+SELECT * FROM DUAL;
