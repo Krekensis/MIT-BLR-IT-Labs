@@ -39,7 +39,7 @@ JOIN Employee E ON D.Mgr_ssn=E.Ssn
 WHERE E.Lname='Smith';
 
 -- 6. Employees living in Houston
-SELECT *
+SELECT Ssn, Fname
 FROM Employee
 WHERE Address LIKE '%Houston%';
 
@@ -51,7 +51,7 @@ JOIN Project P ON W.Pnumber=P.Pnumber
 WHERE P.Pname='ProductX';
 
 -- 8. Employees in department 5 with salary between 30000 and 40000
-SELECT *
+SELECT Ssn, Fname
 FROM Employee
 WHERE Dnumber=5
 AND Salary BETWEEN 30000 AND 40000;
@@ -96,11 +96,11 @@ FROM Works_On
 WHERE Pnumber IN (1,2,3);
 
 -- 15. Total, max, min, and average employee salary
-SELECT SUM(Salary),MAX(Salary),MIN(Salary),AVG(Salary)
+SELECT SUM(Salary),MAX(Salary),MIN(Salary),ROUND(AVG(Salary), 2) AS AVG_SALARY
 FROM Employee;
 
 -- 16. Total, max, min, avg salary of employees in Research department
-SELECT SUM(Salary),MAX(Salary),MIN(Salary),AVG(Salary)
+SELECT SUM(Salary),MAX(Salary),MIN(Salary),ROUND(AVG(Salary), 2) AS AVG_SALARY
 FROM Employee E
 JOIN Department D
 ON E.Dnumber=D.Dnumber

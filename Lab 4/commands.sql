@@ -22,7 +22,7 @@ FROM Course
 GROUP BY dept_name;
 
 -- 4. Find department names and avg salary where avg salary > 42000.
-SELECT dept_name, AVG(salary) AS avg_salary
+SELECT dept_name, ROUND(AVG(salary), 2) AS avg_salary
 FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 42000;
@@ -56,7 +56,7 @@ FROM (
 );
 
 -- 9. Avg instructor salaries where avg > 42000.
-SELECT dept_name, AVG(salary)
+SELECT dept_name, ROUND(AVG(salary), 2) AS AVG_SALARY
 FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 42000;
@@ -98,7 +98,7 @@ WHERE NOT EXISTS (
 );
 
 -- 12. Avg salary where avg > 50000 AND instructors > 3.
-SELECT dept_name, AVG(salary)
+SELECT dept_name, ROUND(AVG(salary), 2) AS AVG_SALARY
 FROM Instructor
 GROUP BY dept_name
 HAVING AVG(salary) > 50000
