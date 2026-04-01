@@ -77,3 +77,65 @@ public class Q1_HotelBooking {
         viewRoom(101);
     }
 }
+
+/*
+public static void main(String[] args) throws IOException {
+    Scanner sc = new Scanner(System.in);
+    int choice;
+
+    do {
+        System.out.println("\n--- Hotel Management Menu ---");
+        System.out.println("1. Add Room");
+        System.out.println("2. View Room");
+        System.out.println("3. Update Room Status");
+        System.out.println("4. Exit");
+        System.out.print("Enter choice: ");
+        choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter Room Number: ");
+                int roomNumber = sc.nextInt();
+                sc.nextLine(); // consume newline
+
+                System.out.print("Enter Room Type: ");
+                String roomType = sc.nextLine();
+
+                System.out.print("Enter Price: ");
+                double price = sc.nextDouble();
+
+                System.out.print("Is Booked? (true/false): ");
+                boolean status = sc.nextBoolean();
+
+                addRoom(roomNumber, roomType, price, status);
+                break;
+
+            case 2:
+                System.out.print("Enter Room Number to View: ");
+                int viewRoomNumber = sc.nextInt();
+                viewRoom(viewRoomNumber);
+                break;
+
+            case 3:
+                System.out.print("Enter Room Number to Update: ");
+                int updateRoomNumber = sc.nextInt();
+
+                System.out.print("Enter New Status (true = booked, false = available): ");
+                boolean newStatus = sc.nextBoolean();
+
+                updateStatus(updateRoomNumber, newStatus);
+                break;
+
+            case 4:
+                System.out.println("Exiting...");
+                break;
+
+            default:
+                System.out.println("Invalid choice.");
+        }
+
+    } while (choice != 4);
+
+    sc.close();
+}
+*/
