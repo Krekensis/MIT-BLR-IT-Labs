@@ -85,6 +85,7 @@ BEGIN
         AND section_id = rec.section_id
         AND semester = rec.semester
         AND year = rec.year;
+        DBMS_OUTPUT.PUT_LINE(rec.ID || ' ' || rec.course_id || ' ' || rec.section_id || ' ' || rec.semester || ' ' || rec.year);
     END LOOP;
 END;
 /
@@ -92,7 +93,7 @@ END;
 --5
 DECLARE
     CURSOR c_stu IS
-        SELECT ID, tot_cred, LetterGrade
+        SELECT RollNo, GPA, LetterGrade
         FROM StudentTable
         FOR UPDATE;
 
@@ -103,9 +104,11 @@ BEGIN
         UPDATE StudentTable
         SET LetterGrade =
             CASE
-                WHEN rec.tot_cred >= 90 THEN 'A'
-                WHEN rec.tot_cred >= 75 THEN 'B'
-                WHEN rec.tot_cred >= 60 THEN 'C'
+                WHEN rec.GPA >= 9 THEN 'A'
+                WHEN rec.GPA >= 8 THEN 'B'
+                WHEN rec.GPA >= 7 THEN 'C'
+                WHEN rec.GPA >= 6 THEN 'D'
+                WHEN rec.GPA >= 5 THEN 'E'
                 ELSE 'F'
             END
         WHERE CURRENT OF c_stu;
