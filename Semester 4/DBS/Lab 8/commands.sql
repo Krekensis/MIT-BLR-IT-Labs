@@ -77,8 +77,7 @@ BEGIN
     v_message := 'Fine @ Rs.1/day for ' || (v_days - 7) || ' extra day(s).';
   ELSIF v_days <= 30 THEN
     v_fine    := (8 * 1) + ((v_days - 15) * 2);
-    v_message := 'Fine @ Rs.1/day (8 days) + Rs.2/day for ' ||
-                 (v_days - 15) || ' day(s).';
+    v_message := 'Fine @ Rs.1/day (8 days) + Rs.2/day for ' || (v_days - 15) || ' day(s).';
   ELSE
     v_fine    := 5;
     v_message := 'Fixed penalty after 30 days.';
@@ -242,7 +241,7 @@ INSERT INTO Instructor VALUES (3, 'Brian',   'Physics', 72000);
 INSERT INTO Instructor VALUES (4, 'Charlie', 'CS',      80000);
 
 DECLARE
-  v_name       Instructor.Name%TYPE       := 'Alice';   -- Change name here
+  v_name       Instructor.Name%TYPE       := 'Alice'; 
   v_id         Instructor.ID%TYPE;
   v_dept       Instructor.Department%TYPE;
   v_salary     Instructor.Salary%TYPE;
@@ -260,9 +259,9 @@ BEGIN
 
 EXCEPTION
   WHEN TOO_MANY_ROWS THEN
-    DBMS_OUTPUT.PUT_LINE('ERROR: Multiple instructors found with name: ' || v_name || '. Please refine your search.');
+    DBMS_OUTPUT.PUT_LINE('ERROR: Multiple instructors found with name "' || v_name || '". Please refine your search.');
   WHEN NO_DATA_FOUND THEN
-    DBMS_OUTPUT.PUT_LINE('ERROR: No instructor found with name: '|| v_name ||);
+    DBMS_OUTPUT.PUT_LINE('ERROR: No instructor found with name "' || v_name || '".');
 END;
 /
 

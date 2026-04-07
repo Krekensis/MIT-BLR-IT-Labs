@@ -1,0 +1,202 @@
+INSERT ALL -- (dept_name, building, budget)
+  INTO Department VALUES ('CSE', 'Block A', 500000)
+  INTO Department VALUES ('ECE', 'Block B', 400000)
+  INTO Department VALUES ('ME', 'Block C', 350000)
+  INTO Department VALUES ('CE', 'Block D', 300000)
+  INTO Department VALUES ('EEE', 'Block E', 450000)
+  INTO Department VALUES ('FIN', 'Block F', 600000)
+  INTO Department VALUES ('MAT', 'Block G', 350000)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (id, name, dept_name, salary)
+  INTO Instructor VALUES (201, 'Dr Rao', 'CSE', 80000)
+  INTO Instructor VALUES (202, 'Dr Mehta', 'ECE', 75000)
+  INTO Instructor VALUES (203, 'Dr Singh', 'ME', 70000)
+  INTO Instructor VALUES (204, 'Dr Kumar', 'CE', 72000)
+  INTO Instructor VALUES (205, 'Dr Shah', 'EEE', 78000)
+  INTO Instructor VALUES (206, 'Dr Iyer', 'CSE', 82000)
+  INTO Instructor VALUES (207, 'Dr Nair', 'CSE', 76000)
+  INTO Instructor VALUES (208, 'Dr Bose', 'ECE', 74000)
+  INTO Instructor VALUES (209, 'Dr Pillai', 'FIN', 90000)
+  INTO Instructor VALUES (210, 'Dr Sen', 'MAT', 68000)
+  INTO Instructor VALUES (211, 'Dr Kulkarni', 'CSE', 79000)
+  INTO Instructor VALUES (212, 'Dr Gupta', 'CSE', 81000)
+  INTO Instructor VALUES (213, 'Dr Das', 'CSE', 83000)
+  INTO Instructor VALUES (214, 'Dr Banerjee', 'ECE', 76000)
+  INTO Instructor VALUES (215, 'Dr Kapoor' , 'ECE', 77000)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (course_id, title, dept_name, credits)
+  INTO Course VALUES ('CS101', 'DBMS', 'CSE', 4)
+  INTO Course VALUES ('EC101', 'Signals', 'ECE', 3)
+  INTO Course VALUES ('ME101', 'Thermo', 'ME', 4)
+  INTO Course VALUES ('CE101', 'Structures', 'CE', 3)
+  INTO Course VALUES ('EE101', 'Circuits', 'EEE', 4)
+  INTO Course VALUES ('CS102', 'Data Structures', 'CSE', 4)
+  INTO Course VALUES ('CS201', 'Operating Systems', 'CSE', 4)
+  INTO Course VALUES ('EC102', 'Communication', 'ECE', 3)
+  INTO Course VALUES ('MA101', 'Calculus', 'MAT', 4)
+  INTO Course VALUES ('FI101', 'Accounting', 'FIN', 3)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (building, room_number, capacity)
+  INTO Classroom VALUES ('Block A', '101', 60)
+  INTO Classroom VALUES ('Block B', '102', 55)
+  INTO Classroom VALUES ('Block C', '103', 50)
+  INTO Classroom VALUES ('Block D', '104', 45)
+  INTO Classroom VALUES ('Block E', '105', 65)
+  INTO Classroom VALUES ('Block A', '201', 70)
+  INTO Classroom VALUES ('Block B', '202', 60)
+  INTO Classroom VALUES ('Block F', '301', 80)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (time_slot_id, day, start_time, end_time)
+  INTO Time_slot VALUES ('TS1', 'MON', '09:00', '10:00')
+  INTO Time_slot VALUES ('TS2', 'TUE', '10:00', '11:00')
+  INTO Time_slot VALUES ('TS3', 'WED', '11:00', '12:00')
+  INTO Time_slot VALUES ('TS4', 'THU', '12:00', '13:00')
+  INTO Time_slot VALUES ('TS5', 'FRI', '14:00', '15:00')
+  INTO Time_slot VALUES ('TS6', 'MON', '15:00', '16:00')
+  INTO Time_slot VALUES ('TS7', 'TUE', '16:00', '17:00')
+SELECT * FROM DUAL;
+
+INSERT ALL -- (course_id, section_id, semester, year, building, room_number, time_slot_id)
+  INTO Section VALUES ('CS101', '1', 'Fall', 2024, 'Block A', '101', 'TS1')
+  INTO Section VALUES ('EC101', '1', 'Fall', 2024, 'Block B', '102', 'TS2')
+  INTO Section VALUES ('ME101', '1', 'Fall', 2024, 'Block C', '103', 'TS3')
+  INTO Section VALUES ('CE101', '1', 'Fall', 2024, 'Block D', '104', 'TS4')
+  INTO Section VALUES ('EE101', '1', 'Fall', 2024, 'Block E', '105', 'TS5')
+  INTO Section VALUES ('CS102', '1', 'Spring', 2025, 'Block A', '201', 'TS6')
+  INTO Section VALUES ('CS101', '2', 'Spring', 2025, 'Block A', '101', 'TS1')
+  INTO Section VALUES ('CS201', '1', 'Spring', 2026, 'Block A', '201', 'TS7')
+  INTO Section VALUES ('MA101', '1', 'Fall', 2025, 'Block F', '301', 'TS6')
+  INTO Section VALUES ('FI101', '1', 'Fall', 2025, 'Block F', '301', 'TS7')
+  INTO Section VALUES ('CS102', '2', 'Spring', 2025, 'Block A', '201', 'TS6')
+  INTO Section VALUES ('CS201', '2', 'Spring', 2026, 'Block A', '101', 'TS7')
+  INTO Section VALUES ('EC102', '2', 'Fall', 2025, 'Block B', '202', 'TS6')
+SELECT * FROM DUAL;
+
+INSERT ALL -- (ID, course_id, section_id, semester, year)
+  INTO Teaches VALUES (201, 'CS101', '1', 'Fall', 2024)
+  INTO Teaches VALUES (202, 'EC101', '1', 'Fall', 2024)
+  INTO Teaches VALUES (203, 'ME101', '1', 'Fall', 2024)
+  INTO Teaches VALUES (204, 'CE101', '1', 'Fall', 2024)
+  INTO Teaches VALUES (205, 'EE101', '1', 'Fall', 2024)
+  INTO Teaches VALUES (206, 'CS102', '1', 'Spring', 2025)
+  INTO Teaches VALUES (207, 'CS201', '1', 'Spring', 2026)
+  INTO Teaches VALUES (210, 'MA101', '1', 'Fall', 2025)
+  INTO Teaches VALUES (209, 'FI101', '1', 'Fall', 2025)
+  INTO Teaches VALUES (206, 'CS102', '2', 'Spring', 2025)
+  INTO Teaches VALUES (207, 'CS201', '2', 'Spring', 2026)
+  INTO Teaches VALUES (208, 'EC102', '2', 'Fall', 2025)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (ID, name, dept_name, tot_cred)
+  INTO Students VALUES (101, 'Asha', 'CSE', 80)
+  INTO Students VALUES (102, 'Ravi', 'ECE', 75)
+  INTO Students VALUES (103, 'Neha', 'ME', 78)
+  INTO Students VALUES (104, 'Arjun', 'CE', 85)
+  INTO Students VALUES (105, 'Kiran', 'EEE', 80)
+  INTO Students VALUES (106, 'Sita', 'CSE', 82)
+  INTO Students VALUES (107, 'Vikram', 'ECE', 77)
+  INTO Students VALUES (108, 'Priya', 'ME', 79)
+  INTO Students VALUES (109, 'Rahul', 'CE', 83)
+  INTO Students VALUES (110, 'Anita', 'CSE', 81)
+  INTO Students VALUES (111, 'Deepak', 'FIN', 60)
+  INTO Students VALUES (112, 'Nisha', 'MAT', 62)
+  INTO Students VALUES (113, 'Tarun', 'FIN', 64)
+  INTO Students VALUES (114, 'Sneha', 'CSE', 66)
+  INTO Students VALUES (115, 'Vikram', 'MAT', 68)
+  INTO Students VALUES (116, 'Anita', 'ECE', 70)
+  INTO Students VALUES (117, 'Rahul', 'CSE', 72)
+  INTO Students VALUES (118, 'Gaurav', 'ECE',74)
+  INTO Students VALUES (119, 'Ritu', 'FIN', 80)
+  INTO Students VALUES (120, 'Karthik', 'MAT', 55)
+SELECT * FROM DUAL;
+
+INSERT ALL -- (ID, course_id, section_id, semester, year, grade)
+  INTO Takes VALUES (101, 'CS101', '1', 'Fall', 2024, 'A')
+  INTO Takes VALUES (102, 'EC101', '1', 'Fall', 2024, 'B')
+  INTO Takes VALUES (103, 'ME101', '1', 'Fall', 2024, 'A')
+  INTO Takes VALUES (104, 'CE101', '1', 'Fall', 2024, 'B')
+  INTO Takes VALUES (105, 'EE101', '1', 'Fall', 2024, 'A')
+
+  INTO Takes VALUES (106, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (107, 'CS102', '1', 'Spring', 2025, 'B')
+  INTO Takes VALUES (108, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (101, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (102, 'CS102', '1', 'Spring', 2025, 'B')
+
+  INTO Takes VALUES (106, 'CS201', '1', 'Spring', 2026, 'A')
+  INTO Takes VALUES (107, 'CS201', '1', 'Spring', 2026, 'A')
+  INTO Takes VALUES (108, 'CS201', '1', 'Spring', 2026, 'B')
+
+  INTO Takes VALUES (109, 'FI101', '1', 'Fall', 2025, 'A')
+  INTO Takes VALUES (110, 'MA101', '1', 'Fall', 2025, 'B')
+
+  INTO Takes VALUES (111, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (112, 'CS102', '1', 'Spring', 2025, 'B')
+  INTO Takes VALUES (113, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (114, 'CS102', '1', 'Spring', 2025, 'A')
+  INTO Takes VALUES (115, 'CS102', '1', 'Spring', 2025, 'B')
+
+  INTO Takes VALUES (111, 'CS201', '1', 'Spring', 2026, 'A')
+  INTO Takes VALUES (112, 'CS201', '1', 'Spring', 2026, 'A')
+  INTO Takes VALUES (113, 'CS201', '1', 'Spring', 2026, 'B')
+  INTO Takes VALUES (114, 'CS201', '1', 'Spring', 2026, 'A')
+  INTO Takes VALUES (115, 'CS201', '1', 'Spring', 2026, 'A')
+
+  INTO Takes VALUES (116, 'EC102', '2', 'Fall', 2025, 'A')
+  INTO Takes VALUES (117, 'EC102', '2', 'Fall', 2025, 'B')
+  INTO Takes VALUES (118, 'EC102', '2', 'Fall', 2025, 'A')
+
+  INTO Takes VALUES (119, 'FI101', '1', 'Fall', 2025, 'A')
+  INTO Takes VALUES (120, 'MA101', '1', 'Fall', 2025, 'B')
+SELECT * FROM DUAL;
+
+INSERT ALL -- (s_ID, i_ID)
+  INTO Advisor VALUES (101, 201)
+  INTO Advisor VALUES (102, 202)
+  INTO Advisor VALUES (103, 203)
+  INTO Advisor VALUES (104, 204)
+  INTO Advisor VALUES (105, 205)
+  INTO Advisor VALUES (106, 206)
+  INTO Advisor VALUES (107, 207)
+  INTO Advisor VALUES (108, 206)
+  INTO Advisor VALUES (109, 209)
+  INTO Advisor VALUES (110, 210)
+  INTO Advisor VALUES (111, 206)
+  INTO Advisor VALUES (112, 207)
+  INTO Advisor VALUES (113, 211)
+  INTO Advisor VALUES (114, 212)
+  INTO Advisor VALUES (115, 213)
+SELECT * FROM DUAL;
+  
+INSERT ALL -- (course_id, prereq_id)
+  INTO Prereq VALUES ('CS102', 'CS101')
+  INTO Prereq VALUES ('CS201', 'CS102')
+  INTO Prereq VALUES ('CS201', 'CS101')
+  INTO Prereq VALUES ('EC102', 'EC101')
+SELECT * FROM DUAL;
+
+
+-- course in both semesters
+INSERT INTO Section VALUES ('CS101','3','Fall',2025,'Block A','101','TS1');
+INSERT INTO Section VALUES ('CS101','4','Spring',2026,'Block A','201','TS6');
+
+-- unused course
+INSERT INTO Course VALUES ('CS999','AI Ethics','CSE',3);
+
+-- matching student/instructor name
+INSERT INTO Students VALUES (121,'Dr Rao','CSE',40);
+
+-- low budget department
+INSERT INTO Department VALUES ('BIO','Block H',1000);
+
+-- student who took all CSE courses
+INSERT INTO Students VALUES (122,'TestStudent','CSE',60);
+INSERT INTO Takes VALUES (122,'CS101','1','Fall',2024,'A');
+INSERT INTO Takes VALUES (122,'CS102','1','Spring',2025,'A');
+INSERT INTO Takes VALUES (122,'CS201','1','Spring',2026,'A');
+
+INSERT INTO Takes VALUES (117,'CS102','1','Spring',2025,'A');
