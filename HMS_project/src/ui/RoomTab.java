@@ -12,9 +12,11 @@ public class RoomTab extends Tab {
 
     public RoomTab(HotelService service) {
         setText("Rooms");
+        setClosable(false);
 
         // ---------------- TABLE ----------------
         TableView<Room> table = new TableView<>(service.getRooms());
+        table.setPlaceholder(new Label("No rooms added"));
 
         TableColumn<Room, Integer> num = new TableColumn<>("Room No");
         num.setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
@@ -27,6 +29,18 @@ public class RoomTab extends Tab {
 
         TableColumn<Room, Boolean> avail = new TableColumn<>("Available");
         avail.setCellValueFactory(cell -> cell.getValue().availableProperty());
+        avail.setCellFactory(col -> new TableCell<>() {
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item ? "True" : "False");
+                    setStyle(item ? "-fx-text-fill: #16a34a;" : "-fx-text-fill: #dc2626;");
+                }
+            }
+        });
 
         table.getColumns().addAll(num, type, price, avail);
 
@@ -37,8 +51,11 @@ public class RoomTab extends Tab {
         TextField tfNum = new TextField();
         ComboBox<String> cbType = new ComboBox<>();
         cbType.getItems().addAll("Single", "Double", "Deluxe");
-
         TextField tfPrice = new TextField();
+
+        tfNum.setPromptText("Room number");
+        tfPrice.setPromptText("Price per day");
+        cbType.setPromptText("Select room type");
 
         // ---------------- REAL-TIME VALIDATION ----------------
 
@@ -123,7 +140,7 @@ public class RoomTab extends Tab {
         // ---------------- ROOT ----------------
         VBox root = new VBox(15, form, status, table);
         root.setPadding(new Insets(15));
-        root.setStyle("-fx-background-color: #f4f4f4;");
+        root.setStyle("-fx-background-color: #f5f7fa;");
 
         setContent(root);
     }
@@ -140,6 +157,7 @@ public class RoomTab extends Tab {
     }
 
     private void clearFields(TextField... fields) {
-        for (TextField f : fields) f.clear();
+        for (TextField f : fields)
+            f.clear();
     }
 }

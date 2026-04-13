@@ -12,9 +12,11 @@ public class CustomerTab extends Tab {
 
     public CustomerTab(HotelService service) {
         setText("Customers");
+        setClosable(false);
 
         // ---------------- TABLE VIEW ----------------
         TableView<Customer> table = new TableView<>(service.getCustomers());
+        table.setPlaceholder(new Label("No customers yet"));
 
         TableColumn<Customer, String> colName = new TableColumn<>("Customer");
         colName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getName()));
@@ -30,6 +32,9 @@ public class CustomerTab extends Tab {
         // ---------------- INPUTS ----------------
         TextField tfName = new TextField();
         TextField tfContact = new TextField();
+
+        tfName.setPromptText("Enter customer name");
+        tfContact.setPromptText("Enter phone number");
 
         // ---------------- REAL-TIME VALIDATION ----------------
 
@@ -93,7 +98,7 @@ public class CustomerTab extends Tab {
 
         VBox root = new VBox(15, form, status, table);
         root.setPadding(new Insets(15));
-        root.setStyle("-fx-background-color: #f4f4f4;");
+        root.setStyle("-fx-background-color: #f5f7fa;");
 
         setContent(root);
     }

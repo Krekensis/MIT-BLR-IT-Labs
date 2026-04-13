@@ -14,15 +14,29 @@ public class BookingTab extends Tab {
 
     public BookingTab(HotelService service) {
         setText("Bookings");
+        setClosable(false);
 
         // ---------------- INPUT FIELDS ----------------
         ComboBox<Customer> cbCustomer = new ComboBox<>(service.getCustomers());
         TextField tfContact = new TextField();
         tfContact.setEditable(false);
-
         ComboBox<Room> cbRoom = new ComboBox<>(service.getRooms());
 
+        cbCustomer.setPromptText("Select customer");
+        cbRoom.setPromptText("Select room");
+        tfContact.setPromptText("Auto-filled");
+
         Label status = new Label();
+
+        if (service.getCustomers().isEmpty()) {
+            cbCustomer.setPromptText("No customers available");
+            cbCustomer.setDisable(true);
+        }
+
+        if (service.getRooms().isEmpty()) {
+            cbRoom.setPromptText("No rooms available");
+            cbRoom.setDisable(true);
+        }
 
         // ---------------- AUTO-FILL CUSTOMER ----------------
         cbCustomer.setOnAction(e -> {
@@ -62,6 +76,7 @@ public class BookingTab extends Tab {
                 setError(status, "Room unavailable or does not exist");
             }
         });
+        bookBtn.disableProperty().bind(cbCustomer.valueProperty().isNull().or(cbRoom.valueProperty().isNull()));
 
         // ---------------- CHECKOUT ----------------
         checkoutBtn.setOnAction(e -> {
@@ -78,6 +93,7 @@ public class BookingTab extends Tab {
                 setError(status, "Room not booked");
             }
         });
+        checkoutBtn.disableProperty().bind( cbCustomer.valueProperty().isNull().or(cbRoom.valueProperty().isNull()));
 
         // ---------------- TABLE VIEW ----------------
         TableView<Booking> table = new TableView<>(service.getBookings());
@@ -111,6 +127,7 @@ public class BookingTab extends Tab {
         HBox buttons = new HBox(10, bookBtn, checkoutBtn);
 
         VBox root = new VBox(15, grid, buttons, status, table);
+        root.setStyle("-fx-background-color: #f5f7fa;");
         root.setPadding(new Insets(15));
 
         setContent(root);
