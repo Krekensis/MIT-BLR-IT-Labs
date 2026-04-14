@@ -41,7 +41,11 @@ public class CustomerTab extends Tab {
         // Name: prevent empty-only spaces
         tfName.textProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal.trim().isEmpty()) {
-                setError(status, "Name cannot be empty");
+                setError(status, "Name cannot be empty.");
+            } else {
+                if (!status.getText().equals("Customer successfully added!")) {
+                    status.setText("");
+                }
             }
         });
 
@@ -49,7 +53,11 @@ public class CustomerTab extends Tab {
         tfContact.textProperty().addListener((obs, oldVal, newVal) -> {
             if (!newVal.matches("\\d*")) {
                 tfContact.setText(newVal.replaceAll("[^\\d]", ""));
-                setError(status, "Contact must be numeric");
+                setError(status, "Contact number must be numeric.");
+            } else {
+                if (!status.getText().equals("Customer successfully added!")) {
+                    status.setText("");
+                }
             }
         });
 
@@ -68,14 +76,13 @@ public class CustomerTab extends Tab {
             }
 
             if (contact.length() < 7) {
-                setError(status, "Invalid contact number");
+                setError(status, "Contact number must be at least 7 digits.");
                 return;
             }
 
-            // Add (duplicates allowed)
             service.addCustomer(new Customer(name, contact));
 
-            setSuccess(status, "Customer added");
+            setSuccess(status, "Customer successfully added!");
 
             tfName.clear();
             tfContact.clear();
