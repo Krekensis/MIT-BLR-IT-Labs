@@ -64,6 +64,10 @@ public class RoomTab extends Tab {
             if (!newVal.matches("\\d*")) {
                 tfNum.setText(newVal.replaceAll("[^\\d]", ""));
                 setError(status, "Room number must be integer");
+            } else {
+                if (!status.getText().equals("Room successfully added!")) {
+                    status.setText("");
+                }
             }
         });
 
@@ -72,6 +76,10 @@ public class RoomTab extends Tab {
             if (!newVal.matches("\\d*(\\.\\d*)?")) {
                 tfPrice.setText(newVal.replaceAll("[^\\d.]", ""));
                 setError(status, "Price must be numeric");
+            } else {
+                if (!status.getText().equals("Room successfully added!")) {
+                    status.setText("");
+                }
             }
         });
 
@@ -113,7 +121,7 @@ public class RoomTab extends Tab {
             // Add room
             service.addRoom(new Room(n, cbType.getValue(), p));
 
-            setSuccess(status, "Room added successfully");
+            setSuccess(status, "Room successfully added!");
 
             clearFields(tfNum, tfPrice);
             cbType.setValue(null);

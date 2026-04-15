@@ -28,16 +28,6 @@ public class BookingTab extends Tab {
 
         Label status = new Label();
 
-        if (service.getCustomers().isEmpty()) {
-            cbCustomer.setPromptText("No customers available");
-            cbCustomer.setDisable(true);
-        }
-
-        if (service.getRooms().isEmpty()) {
-            cbRoom.setPromptText("No rooms available");
-            cbRoom.setDisable(true);
-        }
-
         // ---------------- AUTO-FILL CUSTOMER ----------------
         cbCustomer.setOnAction(e -> {
             Customer c = cbCustomer.getValue();
@@ -93,7 +83,7 @@ public class BookingTab extends Tab {
                 setError(status, "Room not booked");
             }
         });
-        checkoutBtn.disableProperty().bind( cbCustomer.valueProperty().isNull().or(cbRoom.valueProperty().isNull()));
+        checkoutBtn.disableProperty().bind(cbCustomer.valueProperty().isNull().or(cbRoom.valueProperty().isNull()));
 
         // ---------------- TABLE VIEW ----------------
         TableView<Booking> table = new TableView<>(service.getBookings());

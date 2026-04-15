@@ -19,6 +19,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return id + " - " + name + " | " + contact ;
+        return "ID: "+ id + " - " + name + " ( " + contact + " )";
     }
 }
