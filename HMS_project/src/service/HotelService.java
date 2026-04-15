@@ -24,13 +24,29 @@ public class HotelService {
     public void addRoom(Room room) {
         rooms.add(room);
     }
+    public void deleteRoom(Room room) {
+        rooms.remove(room);
+    }
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
     }
+    public void deleteCustomer(Customer customer) {
+        customers.remove(customer);
+    }
+
 
     public boolean roomExists(int roomNo) {
         return rooms.stream().anyMatch(r -> r.getRoomNumber() == roomNo);
+    }
+    public boolean customerExists(int customerId) {
+        return customers.stream().anyMatch(c -> c.getId() == customerId);
+    }
+    public boolean bookingExistsRoom(int roomNo) {
+        return bookings.stream().anyMatch(b -> b.getRoom().getRoomNumber() == roomNo);
+    }
+    public boolean bookingExistsCustomer(int customerId) {
+        return bookings.stream().anyMatch(b -> b.getCustomer().getId() == customerId);
     }
 
     public boolean bookRoom(Customer customer, Room room) {

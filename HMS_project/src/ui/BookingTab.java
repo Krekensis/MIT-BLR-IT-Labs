@@ -46,12 +46,21 @@ public class BookingTab extends Tab {
         bookBtn.setOnAction(e -> {
             Customer customer = cbCustomer.getValue();
             Room room = cbRoom.getValue();
+
             if (customer == null) {
                 setError(status, "Select a customer");
                 return;
             }
             if (room == null) {
                 setError(status, "Select a room");
+                return;
+            }
+            if (service.bookingExistsCustomer(customer.getId())) {
+                setError(status, "Customer already has a booking");
+                return;
+            }
+            if (service.bookingExistsRoom(room.getRoomNumber())) {
+                setError(status, "Room already booked");
                 return;
             }
 
@@ -83,7 +92,7 @@ public class BookingTab extends Tab {
                 setError(status, "Room not booked");
             }
         });
-        checkoutBtn.disableProperty().bind(cbCustomer.valueProperty().isNull().or(cbRoom.valueProperty().isNull()));
+        checkoutBtn.disableProperty().bind(cbRoom.valueProperty().isNull());
 
         // ---------------- TABLE VIEW ----------------
         TableView<Booking> table = new TableView<>(service.getBookings());
