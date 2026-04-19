@@ -1,14 +1,11 @@
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
-#include <sys/wait.h>
 
 struct msg_buf { long type; char text[100]; } msg;
 
 int main() {
-    int id = msgget(IPC_PRIVATE, 0666 | IPC_CREAT);
+    int id = msgget(ipc_private, 0666 | IPC_CREAT);
 
     if (fork() > 0) { // Process A (Sender)
         msg.type = 1;
