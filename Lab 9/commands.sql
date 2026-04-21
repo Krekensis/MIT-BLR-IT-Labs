@@ -18,7 +18,6 @@ BEGIN
         SET salary = salary + v_raise
         WHERE ID = v_id;
 
-        INSERT INTO salary_raise VALUES (v_id, SYSDATE, v_raise);
     END LOOP;
     CLOSE c_inst;
 END;
@@ -72,20 +71,20 @@ END;
 --4
 BEGIN
     FOR rec IN (
-        SELECT tk.ID, tk.course_id, tk.section_id,
+        SELECT tk.ID, tk.course_id, tk.section_id,i
                tk.semester, tk.year
         FROM Takes tk
         JOIN Students s ON tk.ID = s.ID
         WHERE tk.course_id = 'CS101' AND s.tot_cred < 30
     )
     LOOP
+        DBMS_OUTPUT.PUT_LINE(rec.ID || ' ' || rec.course_id || ' ' || rec.section_id || ' ' || rec.semester || ' ' || rec.year);
         DELETE FROM Takes
         WHERE ID = rec.ID
         AND course_id = rec.course_id
         AND section_id = rec.section_id
         AND semester = rec.semester
         AND year = rec.year;
-        DBMS_OUTPUT.PUT_LINE(rec.ID || ' ' || rec.course_id || ' ' || rec.section_id || ' ' || rec.semester || ' ' || rec.year);
     END LOOP;
 END;
 /
