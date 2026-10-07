@@ -14,13 +14,14 @@ def decrypt(ciphertext, a, b):
     return plaintext
 
 
-ciphertext = "XPALASXYFGFUKPXUSOGEUTKCDGEXANMGNVS"
+ciphertext = "XPALASXYFGFUKPXUSOGEUTKCDGFXANMGNVS"
 
 for a in range(26):
     if math.gcd(a, 26) != 1:
         continue
     for b in range(26):
-        # a -> G means a + b = 6; b -> L means 2a + b = 11.
-        if (a + b) % 26 == 6 and (2 * a + b) % 26 == 11:
+        # With A = 0: a -> G means b = 6.
+        # With A = 0 and B = 1: b -> L means a + b = 11.
+        if b == 6 and (a + b) % 26 == 11:
             print("a =", a, "b =", b)
             print("Plaintext:", decrypt(ciphertext, a, b))
