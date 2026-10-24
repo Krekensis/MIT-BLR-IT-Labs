@@ -1,7 +1,7 @@
         AREA RESET, DATA, READONLY
-        EXPORT Vectors
+        EXPORT __Vectors
 
-Vectors
+__Vectors
         DCD 0x40001000
         DCD Reset_Handler
         ALIGN
@@ -16,7 +16,7 @@ Reset_Handler
 
         LDRB R1, [R0]          ; Load hexadecimal number
 
-        AND R2, R1, #0x0F      ; Mask upper 4 bits (isolating A from 3A)
+        AND R2, R1, #0x0F      ; Mask lower 4 bits (isolating A from 3A)
         CMP R2, #09             ; Check if digit <= 9
         BLS DOWN
 
@@ -26,7 +26,7 @@ DOWN
         ADD R2, R2, #0x30       ; Convert to ASCII
         STRB R2, [R3]           ; Store first ASCII digit
 
-        AND R4, R1, #0xF0       ; Mask lower 4 bits
+        AND R4, R1, #0xF0       ; Mask upper 4 bits
         MOV R4, R4, LSR #4      ; Shift to lower position
 
         CMP R4, #09             ; Check if digit <= 9
