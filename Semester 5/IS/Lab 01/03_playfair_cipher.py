@@ -1,17 +1,28 @@
 """Lab 01 Q3: Playfair cipher using the key GUIDANCE."""
 
 
+def clean_text(text):
+    return "".join(letter for letter in text.upper() if letter.isalpha()).replace("J", "I")
+
 def create_matrix(key):
     letters = []
+
+    # "MONARCHYABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for letter in key.upper() + "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+
         letter = "I" if letter == "J" else letter
+
+        # STEP 3: Add a letter only if it hasn't appeared before.
+        # This removes duplicates while preserving order.
         if letter not in letters:
             letters.append(letter)
+
+    # STEP 4: Split the 25 letters into groups of 5.
+    # Each group becomes one row of the matrix.
     return [letters[i:i + 5] for i in range(0, 25, 5)]
 
-
 def make_pairs(text):
-    text = "".join(letter for letter in text.upper() if letter.isalpha()).replace("J", "I")
+    text = clean_text(text)
     pairs = []
     index = 0
     while index < len(text):
@@ -19,7 +30,7 @@ def make_pairs(text):
         second = text[index + 1] if index + 1 < len(text) else "X"
         if first == second:
             second = "X"
-            index += 1
+            index += 1 
         else:
             index += 2
         pairs.append((first, second))
