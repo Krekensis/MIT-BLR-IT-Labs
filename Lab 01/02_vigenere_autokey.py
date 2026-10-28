@@ -19,7 +19,6 @@ def vigenere(text, key, decrypt=False):
         result += ALPHABET[(ALPHABET.index(letter) + shift) % 26]
     return result
 
-
 def autokey(text, first_key=7, decrypt=False):
     text = clean_text(text)
     key_stream = [first_key]
