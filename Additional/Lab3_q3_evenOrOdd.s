@@ -20,3 +20,4 @@ NUMBER  DCD 25
         AREA mydata, DATA, READWRITE
 RESULT  DCD 0
         END
+; Expected RESULT = 1, meaning NUMBER (25) is odd.

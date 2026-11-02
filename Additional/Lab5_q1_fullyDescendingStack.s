@@ -28,3 +28,4 @@ RESULT  SPACE 16
 STACK   SPACE 64
 STACK_TOP
         END
+; Expected RESULT words after push/pop: 11, 22, 33, 44.
