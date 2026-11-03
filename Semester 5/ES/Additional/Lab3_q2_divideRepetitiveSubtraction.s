@@ -28,3 +28,4 @@ DIVISOR DCW 7
         AREA mydata, DATA, READWRITE
 RESULT  SPACE 8
         END
+; Expected RESULT: quotient = 14, remainder = 2.

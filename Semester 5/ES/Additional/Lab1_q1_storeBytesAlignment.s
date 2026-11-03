@@ -34,3 +34,5 @@ ALIGN_TWO SPACE 2
         ALIGN 4
 ALIGN_FOUR SPACE 2
         END
+; Expected memory bytes: NO_ALIGN = 12 34, ALIGN_TWO = 56 78,
+; ALIGN_FOUR = 9A BC. ALIGN directives affect placement, not byte values.

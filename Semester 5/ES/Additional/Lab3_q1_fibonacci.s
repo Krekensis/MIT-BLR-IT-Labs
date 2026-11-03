@@ -22,3 +22,4 @@ STOP    B STOP
         AREA mydata, DATA, READWRITE
 RESULT  SPACE 40
         END
+; Expected RESULT words: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.

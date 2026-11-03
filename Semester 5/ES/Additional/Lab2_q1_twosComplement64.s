@@ -26,3 +26,4 @@ NUMBER  DCD 0x89ABCDEF, 0x12345678
         AREA mydata, DATA, READWRITE
 RESULT  SPACE 8
         END
+; Expected RESULT: low word R0 = 0x76543211, high word R1 = 0xEDCBA987.

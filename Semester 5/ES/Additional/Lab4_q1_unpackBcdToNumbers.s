@@ -22,3 +22,4 @@ BCD     DCD 0x12345678
         AREA mydata, DATA, READWRITE
 RESULT  SPACE 32
         END
+; Expected RESULT words, least-significant BCD digit first: 8, 7, 6, 5, 4, 3, 2, 1.

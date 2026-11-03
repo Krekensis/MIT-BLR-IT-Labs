@@ -23,3 +23,4 @@ STOP    B STOP
 NUMBER  DCD 0xF0F00F0F
 RESULT  DCD 0
         END
+; Expected RESULT = 16 (the number of 1 bits in 0xF0F00F0F).

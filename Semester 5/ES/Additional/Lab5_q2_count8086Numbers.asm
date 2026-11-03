@@ -45,3 +45,4 @@ NOT_GREATER:
     INT 21H
 CODE ENDS
 END START
+; Expected counts: EVEN_CT = 4, ODD_CT = 4, GT10_CT = 4.

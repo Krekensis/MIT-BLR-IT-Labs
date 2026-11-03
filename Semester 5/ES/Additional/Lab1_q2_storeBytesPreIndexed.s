@@ -18,3 +18,5 @@ STOP    B STOP
         AREA mydata, DATA, READWRITE
 RESULT  SPACE 3
         END
+; Expected RESULT bytes: 00 12 34. Pre-indexed stores write at RESULT+1,
+; then RESULT+2; R0 finishes at RESULT+2.
