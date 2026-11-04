@@ -5,7 +5,6 @@ import secrets
 import string
 import time
 
-
 def create_dataset(count=75):
     alphabet = string.ascii_letters + string.digits
     values = []
@@ -14,16 +13,16 @@ def create_dataset(count=75):
         values.append("".join(secrets.choice(alphabet) for _ in range(length)))
     return values
 
-
-def test_algorithm(name, values):
+def test_algorithm(name, dataset):
     start = time.perf_counter()
-    hashes = [getattr(hashlib, name)(value.encode()).hexdigest() for value in values]
+    hashes = [getattr(hashlib, name)(value.encode()).hexdigest() for value in dataset]
     elapsed = time.perf_counter() - start
     collisions = len(hashes) - len(set(hashes))
-    print(f"{name.upper():7} time = {elapsed:.8f}s, collisions = {collisions}")
 
+    print(f"{name.upper():7} time = {elapsed:.8f}s, collisions = {collisions}")
 
 dataset = create_dataset(75)
 print("Number of random strings:", len(dataset))
+
 for algorithm in ("md5", "sha1", "sha256"):
     test_algorithm(algorithm, dataset)

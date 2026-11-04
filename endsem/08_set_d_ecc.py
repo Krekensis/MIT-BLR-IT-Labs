@@ -1,67 +1,49 @@
-"""Set D Q2: small ECIES-style demonstration, matching Lab 03 Q2."""
+"""Set D Q2: short ECC encryption demo for learning and exam practice."""
 
-import hashlib
-import secrets
+# Small toy curve: y^2 = x^3 + 2x + 2 (mod 17), with generator G=(5, 1).
+# Tiny parameters keep the example readable; they are not secure for real use.
+p, a = 17, 2
+G = (5, 1)
 
-P = 0xFFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
-A = P - 3
-G = (0x6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296,
-     0x4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5)
-N = 0xFFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
-
-
-def add_points(first, second):
-    if first is None:
-        return second
-    if second is None:
-        return first
-
-    x1, y1 = first
-    x2, y2 = second
-    if x1 == x2 and (y1 + y2) % P == 0:
-        return None
-
-    if first == second:
-        slope = (3 * x1 * x1 + A) * pow(2 * y1, -1, P)
+def add(P, Q):
+    if P is None: return Q
+    if Q is None: return P
+    x1, y1 = P
+    x2, y2 = Q
+    if x1 == x2 and (y1 + y2) % p == 0: return None
+    if P == Q:
+        slope = (3 * x1 * x1 + a) * pow(2 * y1, -1, p)
     else:
-        slope = (y2 - y1) * pow(x2 - x1, -1, P)
-    slope %= P
-
-    x3 = (slope * slope - x1 - x2) % P
-    y3 = (slope * (x1 - x3) - y1) % P
+        slope = (y2 - y1) * pow(x2 - x1, -1, p)
+    slope %= p
+    x3 = (slope * slope - x1 - x2) % p
+    y3 = (slope * (x1 - x3) - y1) % p
     return x3, y3
 
 
-def multiply_point(number, point):
-    answer = None
-    while number > 0:
-        if number % 2 == 1:
-            answer = add_points(answer, point)
-        point = add_points(point, point)
-        number //= 2
-    return answer
-
-
-def make_stream(point, length):
-    shared_x = point[0].to_bytes(32, "big")
-    return hashlib.shake_256(shared_x).digest(length)
+def multiply(k, P):
+    result = None
+    while k:
+        if k % 2: result = add(result, P)
+        P = add(P, P)
+        k //= 2
+    return result
 
 
 message = b"Secure Transactions"
-private_key = secrets.randbelow(N - 1) + 1
-public_key = multiply_point(private_key, G)
+private_key, r = 5, 7             # d is private; r is temporary
+public_key = multiply(private_key, G)  # Q = dG
+R = multiply(r, G)                     # sender's temporary public point
+shared = multiply(r, public_key)       # sender computes rQ
 
-ephemeral_key = secrets.randbelow(N - 1) + 1
-ephemeral_public = multiply_point(ephemeral_key, G)
-shared_secret = multiply_point(ephemeral_key, public_key)
+# Toy encryption: XOR with the shared point's x-coordinate.
+ciphertext = bytes(byte ^ shared[0] for byte in message)
 
-stream = make_stream(shared_secret, len(message))
-ciphertext = bytes(a ^ b for a, b in zip(message, stream))
+# Receiver computes dR, which is the same shared point as rQ.
+receiver_shared = multiply(private_key, R)
+plaintext = bytes(byte ^ receiver_shared[0] for byte in ciphertext)
 
-receiver_secret = multiply_point(private_key, ephemeral_public)
-plaintext = bytes(a ^ b for a, b in zip(ciphertext, make_stream(receiver_secret, len(message))))
-
-print("Ephemeral public key:", ephemeral_public)
+print("Public key Q:", public_key)
 print("Ciphertext (hex):", ciphertext.hex())
 print("Decrypted text:", plaintext.decode())
 print("Matches original:", plaintext == message)
