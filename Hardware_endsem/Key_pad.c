@@ -30,12 +30,12 @@ int main(void) {
 	temp1 = 0x80;														//point to first line of LCD
 	lcd_com();
 	delay_lcd(800);
-	lcd_puts(&Msg1[0]);	 										//display the messsage
-
+	lcd_puts(&Msg2[0]);	 										//display the messsage
+/*
 	temp1 = 0xC0;														//point to first line of LCD
 	lcd_com();
 	delay_lcd(800);
-	lcd_puts(&Msg2[0]);	 										//display the messsage
+	lcd_puts(&Msg2[0]);	 */										//display the messsage
 
 	while(1) {
 		while(1) {
@@ -63,7 +63,7 @@ int main(void) {
 			} 																//end if(key == SCAN_CODE[i])
 		}																		//end for(i=0;i<16;i++)
 
-		temp1 = 0xCC;
+		temp1 = 0x8C;
 		lcd_com();
 		delay_lcd(800);
 		lcd_puts(&key);
