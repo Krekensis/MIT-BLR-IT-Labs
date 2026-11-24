@@ -1,7 +1,7 @@
 AREA RESET, DATA, READONLY
-        EXPORT Vectors
+        EXPORT __Vectors
 
-Vectors
+__Vectors
         DCD 0x40001000
         DCD Reset_Handler
         ALIGN

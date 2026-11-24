@@ -27,8 +27,8 @@ unsigned int Disp[16] = {0x000003f0, 0x00000060, 0x000005b0, 0x000004f0, 0x00000
 // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
 
-#define ALLDISP 0x00180000	// Select all display
-#define DATAPORT 0x00000ff0 // P0.4 to P0.11 : Data lines connected to drive Seven Segments
+//#define ALLDISP 0x00180000	// Select all display
+//#define DATAPORT 0x00000ff0 // P0.4 to P0.11 : Data lines connected to drive Seven Segments
 int main(void)
 {
 	LPC_PINCON->PINSEL0 = 0x00000000;
@@ -37,7 +37,7 @@ int main(void)
 
 	while (1)
 	{
-		LPC_GPIO0->FIOSET |= ALLDISP;
+		LPC_GPIO0->FIOSET |= 0x00180000; // Select all display
 		LPC_GPIO0->FIOCLR = 0x00000ff0;		   // clear the data lines to 7-segment displays
 		LPC_GPIO0->FIOSET = Disp[Switchcount]; // get the 7-segment display value from the array
 

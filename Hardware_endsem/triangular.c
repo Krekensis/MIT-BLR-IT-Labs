@@ -26,7 +26,7 @@ int main ()
 	unsigned long int temp=0x00000000; 
 	unsigned int i=0;
   
-  LPC_PINCON->PINSEL0 &= 0xFF0000FF ;						// Configure P0.4 to P0.11 as GPIO
+    LPC_PINCON->PINSEL0 &= 0xFF0000FF ;						// Configure P0.4 to P0.11 as GPIO
 	LPC_GPIO0->FIODIR  |= 0x00000FF0 ;
 	LPC_GPIO0->FIOMASK = 0XFFFFF00F;
 	   

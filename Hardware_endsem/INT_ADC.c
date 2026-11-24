@@ -15,26 +15,19 @@ int main(void){
     unsigned char dval[7];
     unsigned char blank[] = "   ";
 
-    /* Text labels displayed on the LCD */
     unsigned char Msg3[11] = {"ANALOG IP:"};
     unsigned char Msg4[12] = {"ADC OUTPUT:"};
 
-    /* Initialize the LCD */
     lcd_init();
 
-    /* Select P1.31 as the ADC input pin AD0.5 */
     LPC_PINCON->PINSEL3 |= 0xC0000000;
-
-    /* Enable power to the ADC peripheral */
     LPC_SC->PCONP |= (1 << 12);
 
-    /* Display "ANALOG IP:" at the start of the first LCD line */
     temp1 = 0x80;
     lcd_com();
     delay_lcd(800);
     lcd_puts(&Msg3[0]);
 
-    /* Display "ADC OUTPUT:" at the start of the second LCD line */
     temp1 = 0xC0;
     lcd_com();
     delay_lcd(800);
@@ -50,27 +43,15 @@ int main(void){
          */
         LPC_ADC->ADCR = (1 << 5) | (1 << 21) | (1 << 24);
 
-        /* Short delay to allow time for the conversion */
         for (i = 0; i < 2000; i++);
 
-        /*
-         * Wait for the ADC conversion to complete.
-         * ADGDR contains the conversion status and result.
-         */
         while ((adc_temp = LPC_ADC->ADGDR) == 0x80000000);
 
-        /* Read the ADC global data register */
         adc_temp = LPC_ADC->ADGDR;
-
-        /* Move the 12-bit ADC result from bits 15:4 down to bits 11:0 */
         adc_temp >>= 4;
-
-        /* Keep only the 12-bit result */
         adc_temp &= 0x00000FFF;
 
-        /* Convert the ADC result to an input voltage */
-        in_vtg = ((float)adc_temp * (float)Ref_Vtg)
-                 / (float)Full_Scale;
+        in_vtg = ((float)adc_temp * (float)Ref_Vtg) / (float)Full_Scale;
 
         /* Convert the voltage and ADC result to strings for the LCD */
         sprintf(vtg, "%3.2fV", in_vtg);
