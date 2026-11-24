@@ -21,7 +21,9 @@ int main(void) {
 	LPC_PINCON->PINSEL3 = 0x00000000; 			//P1.20 to P1.23 MADE GPIO
 	LPC_PINCON->PINSEL0 = 0x00000000;  			//P0.15 as GPIO
 	LPC_PINCON->PINSEL1 = 0x00000000; 			//P0.16 t0 P0.18 made GPIO
+
 	LPC_GPIO0->FIODIR &= ~0x00078000; 			//made INput P0.15 to P0.18 (cols)
+	
 	LPC_GPIO1->FIODIR |= 0x00F00000; 				//made output P1.20 to P1.23 (rows)
 	LPC_GPIO1->FIOSET = 0x00F00000;  
 
@@ -30,12 +32,12 @@ int main(void) {
 	temp1 = 0x80;														//point to first line of LCD
 	lcd_com();
 	delay_lcd(800);
-	lcd_puts(&Msg1[0]);	 										//display the messsage
-
+	lcd_puts(&Msg2[0]);	 										//display the messsage
+/*
 	temp1 = 0xC0;														//point to first line of LCD
 	lcd_com();
 	delay_lcd(800);
-	lcd_puts(&Msg2[0]);	 										//display the messsage
+	lcd_puts(&Msg2[0]);	 */										//display the messsage
 
 	while(1) {
 		while(1) {
@@ -63,7 +65,7 @@ int main(void) {
 			} 																//end if(key == SCAN_CODE[i])
 		}																		//end for(i=0;i<16;i++)
 
-		temp1 = 0xCC;
+		temp1 = 0x8C;
 		lcd_com();
 		delay_lcd(800);
 		lcd_puts(&key);
